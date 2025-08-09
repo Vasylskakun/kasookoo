@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "5264deb1-c1cd-441a-8639-2c66939bf673",
+		"name": "kasookoo-sdk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "165701"
+	},
+	"item": [
+		{
+			"name": "firbase-registration-for-token",
+			"item": [
+				{
+					"name": "register-caller-or-called-for-firebase-token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"686d3ef448abd1c4f7fc2331\",\r\n    \"user_type\": \"driver\",\r\n    \"device_token\": \"5623476423t437826347\", \r\n    \"device_type\": \"android\",\r\n    \"device_info\":{}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/notifications/register-token"
+					},
+					"response": []
+				},
+				{
+					"name": "update-caller-or-called-for-firebase-token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": \"686d3ef448abd1c4f7fc2331\",\r\n    \"user_type\": \"driver\",\r\n    \"device_token\": \"5623476423t437826347\", \r\n    \"new_device_token\":\"83467893573853598\",\r\n    \"device_type\": \"android\",\r\n    \"device_info\":{}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/notifications/update-token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webrtc-to-webrtc-calling",
+			"item": [
+				{
+					"name": "get-livekit-token-for-webrtc-caller",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_name\":\"sdk-room\",\r\n    \"participant_identity\":\"waqas3232\",\r\n    \"participant_identity_name\": \"Waqas\",\r\n    \"participant_identity_type\": \"driver\",\r\n    \"caller_user_id\": \"686d3ef448abd1c4f7fc2331\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/sdk/get-caller-livekit-token"
+					},
+					"response": []
+				},
+				{
+					"name": "get-livekit-token-for-webrtc-called",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"room_name\":\"sdk-room\",\r\n    \"participant_identity\":\"Vasyl3232\",\r\n    \"participant_identity_name\": \"Vasyl\",\r\n    \"participant_identity_type\": \"customer\",\r\n    \"called_user_id\": \"689385eaabc94c92d02e50ef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/sdk/get-called-livekit-token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webrtc-to-sip-calling",
+			"item": [
+				{
+					"name": "make-webrtc-to-sip-call",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\":\"+447783021617\",\r\n    \"room_name\":\"sdk-room\",\r\n    \"participant_name\":\"waseem\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://voiceai.kasookoo.com/api/v1/bot/sdk-sip/calls/make"
+					},
+					"response": []
+				},
+				{
+					"name": "end-webrtc-to-sip-call",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"participant_identity\": \"sip-+447783021617\",\r\n    \"room_name\":\"sdk-room\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://voiceai.kasookoo.com/api/v1/bot/sdk-sip/calls/end"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webrtc-to-webrtc-participants-info",
+			"item": [
+				{
+					"name": "get-random-user-for-caller-identity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"participant_identity\": \"sip-+447783021617\",\r\n    \"room_name\":\"sdk-room\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/random-user"
+					},
+					"response": []
+				},
+				{
+					"name": "get-random-customer-lead-for-caller-identity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/random-lead"
+					},
+					"response": []
+				},
+				{
+					"name": "add-customer-lead-for-caller-identity",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Ahmer\",\r\n    \"email\": \"ahmer@email.com\",\r\n    \"phone_number\": \"+2298792e3287\",\r\n    \"status\": \"active\",\r\n    \"user_id\": \"686d3ef448abd1c4f7fc2331\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8000/api/v1/bot/leads"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "livekit-accesstoken",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"room_name\":\"sdk-room\",\r\n    \"participant_identity\":\"waseem\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://voiceai.kasookoo.com/api/v1/bot/sdk/get-token"
+			},
+			"response": []
+		}
+	]
+}

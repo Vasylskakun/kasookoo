@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_ringing.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_ringing.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_registration.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_registration.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_registration.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_user_selection.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_user_selection.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_call.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_call.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\item_call_history.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\item_call_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-mergeDebugResources-49:\\layout\\activity_call_history.xml",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_call_history.xml"
+    }
+]

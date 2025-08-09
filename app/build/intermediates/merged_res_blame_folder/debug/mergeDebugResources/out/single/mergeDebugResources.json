@@ -1,0 +1,258 @@
+[
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_button_ripple_decline.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\button_ripple_decline.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_menu.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_star.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_star.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_gradient_driver_button.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\gradient_driver_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_registration.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_registration.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_call_modern.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_call_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_speaker_on.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_speaker_on.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_modern_header_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\modern_header_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_user_selection.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_user_selection.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_car_icon.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\car_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_gradient_primary.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\gradient_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_call.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_call.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_driver_modern.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_driver_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_call_button_accept.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\call_button_accept.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_history.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_circle_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\circle_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_microphone.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_microphone.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_call_button_decline.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\call_button_decline.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-hdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_person.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_call_control_button.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\call_control_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_call.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_call.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-mdpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xhdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_speaker_off.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_speaker_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_button_ripple_driver.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\button_ripple_driver.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-debug-50:/layout_activity_registration.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_item_call_history.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\item_call_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_spinner_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\spinner_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xxxhdpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-mdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_driver.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_driver.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_card_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\card_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_speaker.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_speaker.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_button_ripple_control.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\button_ripple_control.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_arrow_back.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_arrow_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_driver_avatar.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\driver_avatar.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_ringing.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_ringing.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_call_end.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_call_end.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\layout_activity_call_history.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\layout\\activity_call_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_gradient_support_button.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\gradient_support_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_visa_logo.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\visa_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_button_ripple_accept.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\button_ripple_accept.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_gradient_main_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\gradient_main_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_payment_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\payment_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xxhdpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_button_ripple_support.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\button_ripple_support.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_mic_off.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_mic_off.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_call_background_gradient.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\call_background_gradient.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xxhdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_avatar_background.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\avatar_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_notification.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_notification.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xhdpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_support_modern.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_support_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-xxxhdpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_gradient_secondary.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\gradient_secondary.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\drawable\\ic_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-debug-50:\\mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\blockify\\.gradle\\daemon\\8.13\\com.yuave.kasookoo.app-main-52:\\mipmap-hdpi\\ic_launcher_round.xml"
+    }
+]

@@ -1,0 +1,450 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.yuave.kasookoo"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Required permissions for calling -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:6:5-67
+12-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+13-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:7:5-71
+13-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:7:22-68
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:8:5-65
+14-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:8:22-62
+15    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+15-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:9:5-80
+15-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:9:22-77
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:10:5-79
+16-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.WAKE_LOCK" />
+17-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:11:5-68
+17-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:11:22-65
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+18-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:12:5-77
+18-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:12:22-74
+19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+19-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:13:5-77
+19-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:13:22-74
+20    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+20-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:14:5-81
+20-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:14:22-78
+21    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+21-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:15:5-78
+21-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:15:22-75
+22
+23    <!-- Hardware features -->
+24    <uses-feature
+24-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:18:5-85
+25        android:name="android.hardware.camera"
+25-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:18:19-57
+26        android:required="false" />
+26-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:18:58-82
+27    <uses-feature
+27-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:19:5-88
+28        android:name="android.hardware.microphone"
+28-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:19:19-61
+29        android:required="true" />
+29-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:19:62-85
+30
+31    <!-- Required by older versions of Google Play services to create IID tokens -->
+32    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+32-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:26:5-82
+32-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:26:22-79
+33
+34    <permission
+34-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+35        android:name="com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+35-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+36        android:protectionLevel="signature" />
+36-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+37
+38    <uses-permission android:name="com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+38-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+38-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+39    <uses-permission
+39-->[com.github.davidliu:audioswitch:89582c47c9a04c62f90aa5e57251af4800a62c9a] C:\Users\blockify\.gradle\caches\8.13\transforms\85e47db417362d18a2f348629875897f\transformed\audioswitch-89582c47c9a04c62f90aa5e57251af4800a62c9a\AndroidManifest.xml:9:5-11:38
+40        android:name="android.permission.BLUETOOTH"
+40-->[com.github.davidliu:audioswitch:89582c47c9a04c62f90aa5e57251af4800a62c9a] C:\Users\blockify\.gradle\caches\8.13\transforms\85e47db417362d18a2f348629875897f\transformed\audioswitch-89582c47c9a04c62f90aa5e57251af4800a62c9a\AndroidManifest.xml:10:9-52
+41        android:maxSdkVersion="30" />
+41-->[com.github.davidliu:audioswitch:89582c47c9a04c62f90aa5e57251af4800a62c9a] C:\Users\blockify\.gradle\caches\8.13\transforms\85e47db417362d18a2f348629875897f\transformed\audioswitch-89582c47c9a04c62f90aa5e57251af4800a62c9a\AndroidManifest.xml:11:9-35
+42
+43    <application
+43-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:21:5-97:19
+44        android:name="com.yuave.kasookoo.CallApplication"
+44-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:22:9-40
+45        android:allowBackup="true"
+45-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:23:9-35
+46        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+46-->[androidx.core:core:1.12.0] C:\Users\blockify\.gradle\caches\8.13\transforms\b8ca9ba1600aa9f3bbeb34f3d2a2388f\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+47        android:dataExtractionRules="@xml/data_extraction_rules"
+47-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:24:9-65
+48        android:debuggable="true"
+49        android:extractNativeLibs="false"
+50        android:fullBackupContent="@xml/backup_rules"
+50-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:25:9-54
+51        android:icon="@mipmap/ic_launcher"
+51-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:26:9-43
+52        android:label="@string/app_name"
+52-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:27:9-41
+53        android:roundIcon="@mipmap/ic_launcher_round"
+53-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:28:9-54
+54        android:supportsRtl="true"
+54-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:29:9-35
+55        android:theme="@style/Theme.CallKotlin" >
+55-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:30:9-48
+56
+57        <!-- User Selection Activity -->
+58        <activity
+58-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:34:9-42:20
+59            android:name="com.yuave.kasookoo.ui.UserSelectionActivity"
+59-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:35:13-53
+60            android:exported="true"
+60-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:36:13-36
+61            android:theme="@style/Theme.CallKotlin" >
+61-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:37:13-52
+62            <intent-filter>
+62-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:38:13-41:29
+63                <action android:name="android.intent.action.MAIN" />
+63-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:39:17-69
+63-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:39:25-66
+64
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:40:17-77
+65-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:40:27-74
+66            </intent-filter>
+67        </activity>
+68
+69        <!-- Registration Activity -->
+70        <activity
+70-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:45:9-48:55
+71            android:name="com.yuave.kasookoo.ui.RegistrationActivity"
+71-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:46:13-52
+72            android:exported="false"
+72-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:47:13-37
+73            android:theme="@style/Theme.CallKotlin" />
+73-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:48:13-52
+74
+75        <!-- Login Activity -->
+76        <activity
+76-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:51:9-54:55
+77            android:name="com.yuave.kasookoo.ui.LoginActivity"
+77-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:52:13-45
+78            android:exported="false"
+78-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:53:13-37
+79            android:theme="@style/Theme.CallKotlin" />
+79-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:54:13-52
+80
+81        <!-- Main Activity -->
+82        <activity
+82-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:57:9-60:55
+83            android:name="com.yuave.kasookoo.ui.MainActivity"
+83-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:58:13-44
+84            android:exported="false"
+84-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:59:13-37
+85            android:theme="@style/Theme.CallKotlin" />
+85-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:60:13-52
+86
+87        <!-- Ringing Activity -->
+88        <activity
+88-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:63:9-69:55
+89            android:name="com.yuave.kasookoo.ui.RingingActivity"
+89-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:64:13-47
+90            android:exported="false"
+90-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:65:13-37
+91            android:launchMode="singleTop"
+91-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:68:13-43
+92            android:showOnLockScreen="true"
+92-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:66:13-44
+93            android:theme="@style/Theme.CallKotlin"
+93-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:69:13-52
+94            android:turnScreenOn="true" />
+94-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:67:13-40
+95
+96        <!-- Call Activity -->
+97        <activity
+97-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:72:9-75:55
+98            android:name="com.yuave.kasookoo.ui.CallActivity"
+98-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:73:13-44
+99            android:exported="false"
+99-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:74:13-37
+100            android:theme="@style/Theme.CallKotlin" />
+100-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:75:13-52
+101
+102        <!-- Call History Activity -->
+103        <activity
+103-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:78:9-81:55
+104            android:name="com.yuave.kasookoo.ui.CallHistoryActivity"
+104-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:79:13-51
+105            android:exported="false"
+105-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:80:13-37
+106            android:theme="@style/Theme.CallKotlin" />
+106-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:81:13-52
+107
+108        <!-- Call Action Receiver -->
+109        <receiver
+109-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:84:9-86:40
+110            android:name="com.yuave.kasookoo.service.CallActionReceiver"
+110-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:85:13-55
+111            android:exported="false" />
+111-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:86:13-37
+112
+113        <!-- Firebase Messaging Service -->
+114        <service
+114-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:89:9-95:19
+115            android:name="com.yuave.kasookoo.service.KasookooFirebaseMessagingService"
+115-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:90:13-69
+116            android:exported="false" >
+116-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:91:13-37
+117            <intent-filter>
+117-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:92:13-94:29
+118                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+118-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:93:17-78
+118-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:93:25-75
+119            </intent-filter>
+120        </service>
+121        <service
+121-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:23:9-29:19
+122            android:name="com.google.firebase.components.ComponentDiscoveryService"
+122-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:24:13-84
+123            android:directBootAware="true"
+123-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:32:13-43
+124            android:exported="false" >
+124-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:25:13-37
+125            <meta-data
+125-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:26:13-28:85
+126                android:name="com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingLegacyRegistrar"
+126-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:27:17-129
+127                android:value="com.google.firebase.components.ComponentRegistrar" />
+127-->[com.google.firebase:firebase-messaging-ktx:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\5b6aad0ade7c4ec89429acbf1f2ee95e\transformed\firebase-messaging-ktx-23.3.1\AndroidManifest.xml:28:17-82
+128            <meta-data
+128-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:57:13-59:85
+129                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+129-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:58:17-122
+130                android:value="com.google.firebase.components.ComponentRegistrar" />
+130-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:59:17-82
+131            <meta-data
+131-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:60:13-62:85
+132                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+132-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:61:17-119
+133                android:value="com.google.firebase.components.ComponentRegistrar" />
+133-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:62:17-82
+134            <meta-data
+134-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:15:13-17:85
+135                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+135-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:16:17-130
+136                android:value="com.google.firebase.components.ComponentRegistrar" />
+136-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:17:17-82
+137            <meta-data
+137-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:18:13-20:85
+138                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+138-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:19:17-127
+139                android:value="com.google.firebase.components.ComponentRegistrar" />
+139-->[com.google.firebase:firebase-installations:17.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\3ea01497bbd3a696cc75303471225b7f\transformed\firebase-installations-17.2.0\AndroidManifest.xml:20:17-82
+140            <meta-data
+140-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\551155553dcb7b3dcedbfd9b6c630f38\transformed\firebase-common-ktx-20.4.2\AndroidManifest.xml:12:13-14:85
+141                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+141-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\551155553dcb7b3dcedbfd9b6c630f38\transformed\firebase-common-ktx-20.4.2\AndroidManifest.xml:13:17-116
+142                android:value="com.google.firebase.components.ComponentRegistrar" />
+142-->[com.google.firebase:firebase-common-ktx:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\551155553dcb7b3dcedbfd9b6c630f38\transformed\firebase-common-ktx-20.4.2\AndroidManifest.xml:14:17-82
+143            <meta-data
+143-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:35:13-37:85
+144                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+144-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:36:17-109
+145                android:value="com.google.firebase.components.ComponentRegistrar" />
+145-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:37:17-82
+146            <meta-data
+146-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\blockify\.gradle\caches\8.13\transforms\c897101ca5db276e0b059a9e8d55b568\transformed\firebase-datatransport-18.1.7\AndroidManifest.xml:27:13-29:85
+147                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+147-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\blockify\.gradle\caches\8.13\transforms\c897101ca5db276e0b059a9e8d55b568\transformed\firebase-datatransport-18.1.7\AndroidManifest.xml:28:17-115
+148                android:value="com.google.firebase.components.ComponentRegistrar" />
+148-->[com.google.firebase:firebase-datatransport:18.1.7] C:\Users\blockify\.gradle\caches\8.13\transforms\c897101ca5db276e0b059a9e8d55b568\transformed\firebase-datatransport-18.1.7\AndroidManifest.xml:29:17-82
+149        </service>
+150
+151        <receiver
+151-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:29:9-40:20
+152            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+152-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:30:13-78
+153            android:exported="true"
+153-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:31:13-36
+154            android:permission="com.google.android.c2dm.permission.SEND" >
+154-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:32:13-73
+155            <intent-filter>
+155-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:33:13-35:29
+156                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+156-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:34:17-81
+156-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:34:25-78
+157            </intent-filter>
+158
+159            <meta-data
+159-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:37:13-39:40
+160                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+160-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:38:17-92
+161                android:value="true" />
+161-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:39:17-37
+162        </receiver>
+163        <!--
+164             FirebaseMessagingService performs security checks at runtime,
+165             but set to not exported to explicitly avoid allowing another app to call it.
+166        -->
+167        <service
+167-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:46:9-53:19
+168            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+168-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:47:13-82
+169            android:directBootAware="true"
+169-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:48:13-43
+170            android:exported="false" >
+170-->[com.google.firebase:firebase-messaging:23.3.1] C:\Users\blockify\.gradle\caches\8.13\transforms\53a27f6747978d981e2ef7e21b1306cd\transformed\firebase-messaging-23.3.1\AndroidManifest.xml:49:13-37
+171            <intent-filter android:priority="-500" >
+171-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:92:13-94:29
+172                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+172-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:93:17-78
+172-->F:\Call_kotlin\app\src\main\AndroidManifest.xml:93:25-75
+173            </intent-filter>
+174        </service>
+175
+176        <provider
+176-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:23:9-28:39
+177            android:name="com.google.firebase.provider.FirebaseInitProvider"
+177-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:24:13-77
+178            android:authorities="com.yuave.kasookoo.firebaseinitprovider"
+178-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:25:13-72
+179            android:directBootAware="true"
+179-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:26:13-43
+180            android:exported="false"
+180-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:27:13-37
+181            android:initOrder="100" />
+181-->[com.google.firebase:firebase-common:20.4.2] C:\Users\blockify\.gradle\caches\8.13\transforms\578691bc1cd7368493d01fd5b5db462b\transformed\firebase-common-20.4.2\AndroidManifest.xml:28:13-36
+182
+183        <service
+183-->[io.livekit:livekit-android:1.5.0] C:\Users\blockify\.gradle\caches\8.13\transforms\7da1d3d525a352e836274483185e3648\transformed\livekit-android-1.5.0\AndroidManifest.xml:29:9-33:43
+184            android:name="io.livekit.android.room.track.screencapture.ScreenCaptureService"
+184-->[io.livekit:livekit-android:1.5.0] C:\Users\blockify\.gradle\caches\8.13\transforms\7da1d3d525a352e836274483185e3648\transformed\livekit-android-1.5.0\AndroidManifest.xml:30:13-92
+185            android:enabled="true"
+185-->[io.livekit:livekit-android:1.5.0] C:\Users\blockify\.gradle\caches\8.13\transforms\7da1d3d525a352e836274483185e3648\transformed\livekit-android-1.5.0\AndroidManifest.xml:31:13-35
+186            android:foregroundServiceType="mediaProjection"
+186-->[io.livekit:livekit-android:1.5.0] C:\Users\blockify\.gradle\caches\8.13\transforms\7da1d3d525a352e836274483185e3648\transformed\livekit-android-1.5.0\AndroidManifest.xml:32:13-60
+187            android:stopWithTask="true" />
+187-->[io.livekit:livekit-android:1.5.0] C:\Users\blockify\.gradle\caches\8.13\transforms\7da1d3d525a352e836274483185e3648\transformed\livekit-android-1.5.0\AndroidManifest.xml:33:13-40
+188
+189        <provider
+189-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+190            android:name="androidx.startup.InitializationProvider"
+190-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+191            android:authorities="com.yuave.kasookoo.androidx-startup"
+191-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+192            android:exported="false" >
+192-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+193            <meta-data
+193-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+194                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+194-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+195                android:value="androidx.startup" />
+195-->[androidx.emoji2:emoji2:1.2.0] C:\Users\blockify\.gradle\caches\8.13\transforms\6036fdd999147e550ecc67e0674ff2be\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+196            <meta-data
+196-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\blockify\.gradle\caches\8.13\transforms\868e01ca199b7c09891da8fd6b5e59e2\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+197                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+197-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\blockify\.gradle\caches\8.13\transforms\868e01ca199b7c09891da8fd6b5e59e2\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+198                android:value="androidx.startup" />
+198-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\blockify\.gradle\caches\8.13\transforms\868e01ca199b7c09891da8fd6b5e59e2\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+199            <meta-data
+199-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+200                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+200-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+201                android:value="androidx.startup" />
+201-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+202        </provider>
+203
+204        <activity
+204-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\blockify\.gradle\caches\8.13\transforms\4ed67fc5524619fff8f9cffe5f31b8ac\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+205            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+205-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\blockify\.gradle\caches\8.13\transforms\4ed67fc5524619fff8f9cffe5f31b8ac\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+206            android:exported="false"
+206-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\blockify\.gradle\caches\8.13\transforms\4ed67fc5524619fff8f9cffe5f31b8ac\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+207            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+207-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\blockify\.gradle\caches\8.13\transforms\4ed67fc5524619fff8f9cffe5f31b8ac\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+208
+209        <meta-data
+209-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\blockify\.gradle\caches\8.13\transforms\cb05bceffdfcfd7122c339877b0385a9\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+210            android:name="com.google.android.gms.version"
+210-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\blockify\.gradle\caches\8.13\transforms\cb05bceffdfcfd7122c339877b0385a9\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+211            android:value="@integer/google_play_services_version" />
+211-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\blockify\.gradle\caches\8.13\transforms\cb05bceffdfcfd7122c339877b0385a9\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+212
+213        <receiver
+213-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+214            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+214-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+215            android:directBootAware="false"
+215-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+216            android:enabled="true"
+216-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+217            android:exported="true"
+217-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+218            android:permission="android.permission.DUMP" >
+218-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+219            <intent-filter>
+219-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+220                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+220-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+220-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+221            </intent-filter>
+222            <intent-filter>
+222-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+223                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+223-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+223-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+224            </intent-filter>
+225            <intent-filter>
+225-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+226                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+226-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+226-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+227            </intent-filter>
+228            <intent-filter>
+228-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+229                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+229-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+229-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\blockify\.gradle\caches\8.13\transforms\fccf8e1533069b902b85fea6491f1a1d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+230            </intent-filter>
+231        </receiver>
+232
+233        <service
+233-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:28:9-34:19
+234            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+234-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:29:13-103
+235            android:exported="false" >
+235-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:30:13-37
+236            <meta-data
+236-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:31:13-33:39
+237                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+237-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:32:17-94
+238                android:value="cct" />
+238-->[com.google.android.datatransport:transport-backend-cct:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\cbeea10395699d1209bb64b00b8f6f67\transformed\transport-backend-cct-3.1.8\AndroidManifest.xml:33:17-36
+239        </service>
+240        <service
+240-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:26:9-30:19
+241            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+241-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:27:13-117
+242            android:exported="false"
+242-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:28:13-37
+243            android:permission="android.permission.BIND_JOB_SERVICE" >
+243-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:29:13-69
+244        </service>
+245
+246        <receiver
+246-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:32:9-34:40
+247            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+247-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:33:13-132
+248            android:exported="false" />
+248-->[com.google.android.datatransport:transport-runtime:3.1.8] C:\Users\blockify\.gradle\caches\8.13\transforms\9393d3e5ab1e57da51e59b8df30e08f7\transformed\transport-runtime-3.1.8\AndroidManifest.xml:34:13-37
+249    </application>
+250
+251</manifest>

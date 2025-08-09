@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name"> Kasookoo SDK</string>
+    
+    <!-- User Selection -->
+    <string name="select_role">Select your role to continue</string>
+    <string name="customer_role">I\'m a Customer</string>
+    <string name="driver_role">I\'m a Driver</string>
+    
+    <!-- Main Activity -->
+    <string name="welcome_customer">Welcome Customer!\nChoose who to call:</string>
+    <string name="welcome_driver">Driver Mode\nWaiting for incoming calls...</string>
+    <string name="call_driver">Call Driver</string>
+    <string name="call_support">Call Support</string>
+    <string name="connect_driver_desc">Connect to your assigned driver</string>
+    <string name="support_help_desc">Get help from customer support</string>
+    
+    <!-- Call States -->
+    <string name="calling">Calling...</string>
+    <string name="connecting">Connecting...</string>
+    <string name="connected">Connected</string>
+    <string name="incoming_call">Incoming Call</string>
+    <string name="ringing">Ringing...</string>
+    
+    <!-- Call Controls -->
+    <string name="mute">Mute</string>
+    <string name="unmute">Unmute</string>
+    <string name="speaker">Speaker</string>
+    <string name="end_call">End Call</string>
+    <string name="answer">Answer</string>
+    <string name="decline">Decline</string>
+    
+    <!-- Messages -->
+    <string name="wait_connect">Please wait while we connect you</string>
+    <string name="touch_answer">Touch to answer the call</string>
+    <string name="permissions_required">Permissions are required for voice calling</string>
+    <string name="connection_failed">Connection failed. Please try again.</string>
+    <string name="call_connection_lost">Call connection lost</string>
+    <string name="speaker_coming_soon">Speaker toggle coming soon</string>
+    
+    <!-- Contact Names -->
+    <string name="driver">Driver</string>
+    <string name="customer">Customer</string>
+    <string name="support">Support</string>
+</resources> 

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_main.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_call_history.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_call_history.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_ringing.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_ringing.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/item_call_history.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/item_call_history.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_call.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_call.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-mergeDebugResources-49:/layout/activity_user_selection.xml",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_user_selection.xml"
+    }
+]

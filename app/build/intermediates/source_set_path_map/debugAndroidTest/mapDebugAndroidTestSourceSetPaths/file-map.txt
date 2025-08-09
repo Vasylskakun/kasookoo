@@ -1,0 +1,6 @@
+com.yuave.kasookoo.test.app-annotation-experimental-1.3.0-0 C:\Users\blockify\.gradle\caches\8.13\transforms\85883d49c250a165b64cbf3dd6efa2b5\transformed\annotation-experimental-1.3.0\res
+com.yuave.kasookoo.test.app-core-1.5.0-1 C:\Users\blockify\.gradle\caches\8.13\transforms\8c7720a40bb487827aa8aaafb6856067\transformed\core-1.5.0\res
+com.yuave.kasookoo.test.app-androidTest-2 F:\Call_kotlin\app\build\generated\res\resValues\androidTest\debug
+com.yuave.kasookoo.test.app-mergeDebugAndroidTestResources-3 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.yuave.kasookoo.test.app-mergeDebugAndroidTestResources-4 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.yuave.kasookoo.test.app-debugAndroidTest-5 F:\Call_kotlin\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

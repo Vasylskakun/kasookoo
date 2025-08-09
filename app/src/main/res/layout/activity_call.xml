@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/call_background_gradient">
+
+    <!-- Top Section -->
+    <LinearLayout
+        android:id="@+id/header_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/call_header_padding"
+        android:layout_marginTop="@dimen/call_header_margin_top">
+
+        <!-- Contact Avatar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/call_avatar_size"
+            android:layout_height="@dimen/call_avatar_size"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="@dimen/call_avatar_radius"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_contact_avatar"
+                android:layout_width="@dimen/call_avatar_icon"
+                android:layout_height="@dimen/call_avatar_icon"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_driver_modern"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Contact Name -->
+        <TextView
+            android:id="@+id/tv_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            android:textSize="@dimen/call_contact_name_size"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Call Status -->
+        <TextView
+            android:id="@+id/tv_call_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connected"
+            android:textSize="@dimen/call_status_size"
+            android:textColor="@color/success"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif" />
+
+        <!-- Call Duration -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="#1E293B80"
+            app:cardElevation="4dp">
+
+            <TextView
+                android:id="@+id/tv_call_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textSize="@dimen/call_duration_size"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:padding="@dimen/call_duration_padding"
+                android:fontFamily="sans-serif-medium" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Call Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/call_bottom_padding">
+
+        <!-- First Row - Mute and Speaker -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/call_row_margin">
+
+            <!-- Mute Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/call_control_button_size"
+                android:layout_height="@dimen/call_control_button_size"
+                android:layout_marginEnd="@dimen/call_control_button_margin"
+                app:cardCornerRadius="@dimen/call_control_button_radius"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/transparent">
+
+                <ImageView
+                    android:id="@+id/btn_mute"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_ripple_control"
+                    android:src="@drawable/ic_microphone"
+                    android:scaleType="center"
+                    android:padding="@dimen/call_control_button_padding"
+                    app:tint="@color/white"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Speaker Button -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/call_control_button_size"
+                android:layout_height="@dimen/call_control_button_size"
+                android:layout_marginStart="@dimen/call_control_button_margin"
+                app:cardCornerRadius="@dimen/call_control_button_radius"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/transparent">
+
+                <ImageView
+                    android:id="@+id/btn_speaker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/button_ripple_control"
+                    android:src="@drawable/ic_speaker"
+                    android:scaleType="center"
+                    android:padding="@dimen/call_control_button_padding"
+                    app:tint="@color/white"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- End Call Button -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/call_end_button_size"
+            android:layout_height="@dimen/call_end_button_size"
+            app:cardCornerRadius="@dimen/call_end_button_radius"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/transparent">
+
+            <ImageView
+                android:id="@+id/btn_end_call"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_ripple_decline"
+                android:src="@drawable/ic_call_end"
+                android:scaleType="center"
+                android:padding="@dimen/call_end_button_padding"
+                app:tint="@color/white"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout> 

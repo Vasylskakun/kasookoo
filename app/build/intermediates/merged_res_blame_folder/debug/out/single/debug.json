@@ -1,0 +1,230 @@
+[
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_arrow_back.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_arrow_back.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_call_end.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_call_end.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_call_control_button.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/call_control_button.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_driver.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_driver.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xxxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_gradient_secondary.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/gradient_secondary.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_activity_ringing.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_ringing.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_menu.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_menu.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_modern_header_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/modern_header_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-hdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/xml_data_extraction_rules.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_gradient_driver_button.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/gradient_driver_button.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_driver_modern.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_driver_modern.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_button_ripple_control.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/button_ripple_control.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_gradient_primary.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/gradient_primary.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/xml_backup_rules.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_button_ripple_support.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/button_ripple_support.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_activity_user_selection.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_user_selection.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_microphone.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_microphone.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_card_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/card_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_mic_off.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_mic_off.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_call_button_accept.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/call_button_accept.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_call.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_call.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_button_ripple_accept.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/button_ripple_accept.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_payment_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/payment_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_car_icon.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/car_icon.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_visa_logo.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/visa_logo.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_gradient_support_button.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/gradient_support_button.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_item_call_history.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/item_call_history.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_button_ripple_decline.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/button_ripple_decline.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_activity_main.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_speaker.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_speaker.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_support_modern.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_support_modern.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_activity_call_history.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_call_history.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xxhdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_notification.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-xxxhdpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-hdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_call_button_decline.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/call_button_decline.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/layout_activity_call.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/layout/activity_call.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_history.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_history.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_avatar_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/avatar_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_circle_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/circle_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_call_background_gradient.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/call_background_gradient.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_button_ripple_driver.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/button_ripple_driver.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-mdpi/ic_launcher.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_gradient_main_background.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/gradient_main_background.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_person.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_person.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_call_modern.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_call_modern.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_driver_avatar.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/driver_avatar.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/drawable_ic_star.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/drawable/ic_star.xml"
+    },
+    {
+        "merged": "com.yuave.kasookoo.app-merged_res-50:/mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "com.yuave.kasookoo.app-main-52:/mipmap-mdpi/ic_launcher_round.xml"
+    }
+]

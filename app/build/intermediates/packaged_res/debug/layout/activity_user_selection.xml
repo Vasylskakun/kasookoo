@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/selection_padding"
+    android:background="@color/white">
+
+    <ImageView
+        android:layout_width="@dimen/selection_icon_size"
+        android:layout_height="@dimen/selection_icon_size"
+        android:src="@drawable/ic_call"
+        android:layout_marginBottom="@dimen/selection_padding"
+        app:tint="@color/primary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Kasookoo SDK Demo"
+        android:textSize="@dimen/selection_title_size"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your role to continue"
+        android:textSize="@dimen/selection_subtitle_size"
+        android:textColor="@color/text_secondary"
+        android:layout_marginBottom="48dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_customer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/selection_button_height"
+        android:text="I'm a Customer"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/selection_button_margin"
+        app:cornerRadius="12dp"
+        app:backgroundTint="@color/primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_driver"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/selection_button_height"
+        android:text="I'm a Driver"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        app:strokeColor="@color/primary"
+        android:textColor="@color/primary" />
+
+</LinearLayout> 

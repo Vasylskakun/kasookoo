@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Header Dimensions -->
+    <dimen name="header_height">90dp</dimen>
+    <dimen name="header_icon_size">32dp</dimen>
+    <dimen name="header_icon_margin">10dp</dimen>
+    <dimen name="header_text_size">24sp</dimen>
+    <dimen name="header_margin">12dp</dimen>
+    
+    <!-- History Button -->
+    <dimen name="history_button_size">42dp</dimen>
+    <dimen name="history_button_radius">21dp</dimen>
+    <dimen name="history_icon_size">20dp</dimen>
+    
+    <!-- Content Layout -->
+    <dimen name="content_top_margin">16dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+    
+    <!-- Welcome Text -->
+    <dimen name="welcome_text_size">22sp</dimen>
+    <dimen name="welcome_bottom_margin">24dp</dimen>
+    
+    <!-- Cards -->
+    <dimen name="card_spacing">16dp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="info_bottom_margin">16dp</dimen>
+    
+    <!-- Avatar/Icons -->
+    <dimen name="avatar_size">52dp</dimen>
+    <dimen name="avatar_radius">26dp</dimen>
+    <dimen name="avatar_icon_size">26dp</dimen>
+    <dimen name="info_text_margin">16dp</dimen>
+    
+    <!-- Text Sizes -->
+    <dimen name="card_title_text_size">18sp</dimen>
+    <dimen name="card_subtitle_text_size">13sp</dimen>
+    <dimen name="subtitle_top_margin">4dp</dimen>
+    
+    <!-- Buttons -->
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+    
+    <!-- Status -->
+    <dimen name="status_top_margin">12dp</dimen>
+    <dimen name="status_text_size">13sp</dimen>
+    
+    <!-- Ringing Screen -->
+    <dimen name="ringing_padding">24dp</dimen>
+    <dimen name="ringing_avatar_container">160dp</dimen>
+    <dimen name="ringing_avatar_size">120dp</dimen>
+    <dimen name="ringing_avatar_radius">60dp</dimen>
+    <dimen name="ringing_avatar_icon">60dp</dimen>
+    <dimen name="ringing_contact_name_size">26sp</dimen>
+    <dimen name="ringing_status_size">16sp</dimen>
+    <dimen name="ringing_info_size">14sp</dimen>
+    <dimen name="ringing_button_size">70dp</dimen>
+    <dimen name="ringing_button_radius">35dp</dimen>
+    <dimen name="ringing_button_padding">20dp</dimen>
+    <dimen name="ringing_button_margin">32dp</dimen>
+    <dimen name="ringing_bottom_padding">32dp</dimen>
+    
+    <!-- Call Screen -->
+    <dimen name="call_header_padding">32dp</dimen>
+    <dimen name="call_header_margin_top">24dp</dimen>
+    <dimen name="call_avatar_size">100dp</dimen>
+    <dimen name="call_avatar_radius">50dp</dimen>
+    <dimen name="call_avatar_icon">50dp</dimen>
+    <dimen name="call_contact_name_size">24sp</dimen>
+    <dimen name="call_status_size">14sp</dimen>
+    <dimen name="call_duration_size">18sp</dimen>
+    <dimen name="call_duration_padding">12dp</dimen>
+    <dimen name="call_control_button_size">60dp</dimen>
+    <dimen name="call_control_button_radius">30dp</dimen>
+    <dimen name="call_control_button_padding">16dp</dimen>
+    <dimen name="call_control_button_margin">32dp</dimen>
+    <dimen name="call_end_button_size">70dp</dimen>
+    <dimen name="call_end_button_radius">35dp</dimen>
+    <dimen name="call_end_button_padding">20dp</dimen>
+    <dimen name="call_bottom_padding">32dp</dimen>
+    <dimen name="call_row_margin">24dp</dimen>
+    
+    <!-- User Selection Screen -->
+    <dimen name="selection_padding">24dp</dimen>
+    <dimen name="selection_icon_size">100dp</dimen>
+    <dimen name="selection_title_size">24sp</dimen>
+    <dimen name="selection_subtitle_size">14sp</dimen>
+    <dimen name="selection_button_height">50dp</dimen>
+    <dimen name="selection_button_margin">12dp</dimen>
+    
+    <!-- Call History Screen -->
+    <dimen name="history_toolbar_height">56dp</dimen>
+    <dimen name="history_padding">12dp</dimen>
+    <dimen name="history_empty_icon_size">48dp</dimen>
+    <dimen name="history_empty_title_size">16sp</dimen>
+    <dimen name="history_empty_subtitle_size">12sp</dimen>
+</resources> 

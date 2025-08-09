@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors - Modern Blue -->
+    <color name="primary">#7DBAAB</color>
+    <color name="primary_color">#3B82F6</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_light">#DBEAFE</color>
+    <color name="primary_variant">#6366F1</color>
+    
+    <!-- Secondary Colors - Modern Teal -->
+    <color name="secondary">#14B8A6</color>
+    <color name="secondary_dark">#0F766E</color>
+    <color name="secondary_light">#CCFBF1</color>
+    
+    <!-- Accent Colors -->
+    <color name="accent">#10B981</color>
+    <color name="accent_light">#D1FAE5</color>
+    
+    <!-- Status Colors -->
+    <color name="success">#10B981</color>
+    <color name="success_light">#D1FAE5</color>
+    <color name="error">#EF4444</color>
+    <color name="error_light">#FEE2E2</color>
+    <color name="warning">#0891B2</color>
+    <color name="warning_light">#E0F7FA</color>
+    <color name="info">#3B82F6</color>
+    
+    <!-- Additional Colors -->
+    <color name="primary_red">#EF4444</color>
+    <color name="primary_green">#10B981</color>
+    <color name="light_green">#D1FAE5</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#F8FAFC</color>
+    <color name="background_secondary">#F1F5F9</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="call_background">#1E293B</color>
+    <color name="call_control_bg">#334155</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_tertiary">#94A3B8</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_surface">#1E293B</color>
+    
+    <!-- Basic Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    
+    <!-- Gray Scale -->
+    <color name="gray_50">#F8FAFC</color>
+    <color name="gray_100">#F1F5F9</color>
+    <color name="gray_200">#E2E8F0</color>
+    <color name="gray_300">#CBD5E1</color>
+    <color name="gray_400">#94A3B8</color>
+    <color name="gray_500">#64748B</color>
+    <color name="gray_600">#475569</color>
+    <color name="gray_700">#334155</color>
+    <color name="gray_800">#1E293B</color>
+    <color name="gray_900">#0F172A</color>
+    
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#667EEA</color>
+    <color name="gradient_end">#764BA2</color>
+    <color name="gradient_driver_start">#3B82F6</color>
+    <color name="gradient_driver_end">#6366F1</color>
+    <color name="gradient_support_start">#14B8A6</color>
+    <color name="gradient_support_end">#0D9488</color>
+</resources> 

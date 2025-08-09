@@ -1,0 +1,14 @@
+# Ignore build output
+build/
+dist/
+
+# Ignore IDE/project settings
+.idea/
+.vscode/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore local environment files
+.env

@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-48:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\blockify\\.gradle\\caches\\8.13\\transforms\\e7d0478d8469a4dedb5cc436f1d66721\\transformed\\appcompat-1.6.1\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    }
+                }
+            ]
+        }
+    ]
+}

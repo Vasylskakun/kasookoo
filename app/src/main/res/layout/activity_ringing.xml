@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/call_background_gradient">
+
+    <!-- Top Section -->
+    <LinearLayout
+        android:id="@+id/top_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/ringing_padding">
+
+        <!-- Contact Avatar with animation effect -->
+        <RelativeLayout
+            android:layout_width="@dimen/ringing_avatar_container"
+            android:layout_height="@dimen/ringing_avatar_container"
+            android:layout_marginBottom="@dimen/ringing_padding">
+
+            <!-- Pulsing animation ring -->
+            <View
+                android:layout_width="@dimen/ringing_avatar_container"
+                android:layout_height="@dimen/ringing_avatar_container"
+                android:background="@drawable/avatar_background"
+                android:alpha="0.3" />
+
+            <!-- Main avatar -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/ringing_avatar_size"
+                android:layout_height="@dimen/ringing_avatar_size"
+                android:layout_centerInParent="true"
+                app:cardCornerRadius="@dimen/ringing_avatar_radius"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="@color/white">
+
+                <ImageView
+                    android:id="@+id/iv_contact_avatar"
+                    android:layout_width="@dimen/ringing_avatar_icon"
+                    android:layout_height="@dimen/ringing_avatar_icon"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_driver_modern"
+                    android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <!-- Contact Name -->
+        <TextView
+            android:id="@+id/tv_contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            android:textSize="@dimen/ringing_contact_name_size"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Calling Status with animation dots -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_calling_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calling"
+                android:textSize="@dimen/ringing_status_size"
+                android:textColor="@color/white_70"
+                android:fontFamily="sans-serif" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:textSize="@dimen/ringing_status_size"
+                android:textColor="@color/white_70"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif" />
+
+        </LinearLayout>
+
+        <!-- Call Info -->
+        <TextView
+            android:id="@+id/tv_call_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait while we connect you"
+            android:textSize="@dimen/ringing_info_size"
+            android:textColor="@color/white_50"
+            android:gravity="center"
+            android:fontFamily="sans-serif" />
+
+    </LinearLayout>
+
+    <!-- Bottom Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/ringing_bottom_padding">
+
+        <!-- Answer Button (For Driver) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/answer_card"
+            android:layout_width="@dimen/ringing_button_size"
+            android:layout_height="@dimen/ringing_button_size"
+            android:layout_marginEnd="@dimen/ringing_button_margin"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/ringing_button_radius"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/transparent">
+
+            <ImageView
+                android:id="@+id/btn_answer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_ripple_accept"
+                android:src="@drawable/ic_call"
+                android:scaleType="center"
+                android:padding="@dimen/ringing_button_padding"
+                app:tint="@color/white"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- End Call Button -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/ringing_button_size"
+            android:layout_height="@dimen/ringing_button_size"
+            app:cardCornerRadius="@dimen/ringing_button_radius"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/transparent">
+
+            <ImageView
+                android:id="@+id/btn_end_call"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/button_ripple_decline"
+                android:src="@drawable/ic_call_end"
+                android:scaleType="center"
+                android:padding="@dimen/ringing_button_padding"
+                app:tint="@color/white"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout> 

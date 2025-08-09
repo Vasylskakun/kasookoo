@@ -1,0 +1,3 @@
+com.yuave.kasookoo.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#10B981</color>
+    <color name="accent_light">#D1FAE5</color>
+    <color name="background">#F8FAFC</color>
+    <color name="background_secondary">#F1F5F9</color>
+    <color name="black">#000000</color>
+    <color name="call_background">#1E293B</color>
+    <color name="call_control_bg">#334155</color>
+    <color name="error">#EF4444</color>
+    <color name="error_light">#FEE2E2</color>
+    <color name="gradient_driver_end">#6366F1</color>
+    <color name="gradient_driver_start">#3B82F6</color>
+    <color name="gradient_end">#764BA2</color>
+    <color name="gradient_start">#667EEA</color>
+    <color name="gradient_support_end">#0D9488</color>
+    <color name="gradient_support_start">#14B8A6</color>
+    <color name="gray_100">#F1F5F9</color>
+    <color name="gray_200">#E2E8F0</color>
+    <color name="gray_300">#CBD5E1</color>
+    <color name="gray_400">#94A3B8</color>
+    <color name="gray_50">#F8FAFC</color>
+    <color name="gray_500">#64748B</color>
+    <color name="gray_600">#475569</color>
+    <color name="gray_700">#334155</color>
+    <color name="gray_800">#1E293B</color>
+    <color name="gray_900">#0F172A</color>
+    <color name="info">#3B82F6</color>
+    <color name="light_green">#D1FAE5</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="on_surface">#1E293B</color>
+    <color name="primary">#3B82F6</color>
+    <color name="primary_color">#3B82F6</color>
+    <color name="primary_dark">#1D4ED8</color>
+    <color name="primary_green">#10B981</color>
+    <color name="primary_light">#DBEAFE</color>
+    <color name="primary_red">#EF4444</color>
+    <color name="primary_variant">#6366F1</color>
+    <color name="secondary">#14B8A6</color>
+    <color name="secondary_dark">#0F766E</color>
+    <color name="secondary_light">#CCFBF1</color>
+    <color name="success">#10B981</color>
+    <color name="success_light">#D1FAE5</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_tertiary">#94A3B8</color>
+    <color name="transparent">#00000000</color>
+    <color name="warning">#0891B2</color>
+    <color name="warning_light">#E0F7FA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="white_90">#E6FFFFFF</color>
+    <dimen name="avatar_icon_size">26dp</dimen>
+    <dimen name="avatar_radius">26dp</dimen>
+    <dimen name="avatar_size">52dp</dimen>
+    <dimen name="button_height">50dp</dimen>
+    <dimen name="button_text_size">16sp</dimen>
+    <dimen name="call_avatar_icon">50dp</dimen>
+    <dimen name="call_avatar_radius">50dp</dimen>
+    <dimen name="call_avatar_size">100dp</dimen>
+    <dimen name="call_bottom_padding">32dp</dimen>
+    <dimen name="call_contact_name_size">24sp</dimen>
+    <dimen name="call_control_button_margin">32dp</dimen>
+    <dimen name="call_control_button_padding">16dp</dimen>
+    <dimen name="call_control_button_radius">30dp</dimen>
+    <dimen name="call_control_button_size">60dp</dimen>
+    <dimen name="call_duration_padding">12dp</dimen>
+    <dimen name="call_duration_size">18sp</dimen>
+    <dimen name="call_end_button_padding">20dp</dimen>
+    <dimen name="call_end_button_radius">35dp</dimen>
+    <dimen name="call_end_button_size">70dp</dimen>
+    <dimen name="call_header_margin_top">24dp</dimen>
+    <dimen name="call_header_padding">32dp</dimen>
+    <dimen name="call_row_margin">24dp</dimen>
+    <dimen name="call_status_size">14sp</dimen>
+    <dimen name="card_corner_radius">20dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_spacing">16dp</dimen>
+    <dimen name="card_subtitle_text_size">13sp</dimen>
+    <dimen name="card_title_text_size">18sp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="content_top_margin">16dp</dimen>
+    <dimen name="header_height">90dp</dimen>
+    <dimen name="header_icon_margin">10dp</dimen>
+    <dimen name="header_icon_size">32dp</dimen>
+    <dimen name="header_margin">12dp</dimen>
+    <dimen name="header_text_size">24sp</dimen>
+    <dimen name="history_button_radius">21dp</dimen>
+    <dimen name="history_button_size">42dp</dimen>
+    <dimen name="history_empty_icon_size">48dp</dimen>
+    <dimen name="history_empty_subtitle_size">12sp</dimen>
+    <dimen name="history_empty_title_size">16sp</dimen>
+    <dimen name="history_icon_size">20dp</dimen>
+    <dimen name="history_padding">12dp</dimen>
+    <dimen name="history_toolbar_height">56dp</dimen>
+    <dimen name="info_bottom_margin">16dp</dimen>
+    <dimen name="info_text_margin">16dp</dimen>
+    <dimen name="ringing_avatar_container">160dp</dimen>
+    <dimen name="ringing_avatar_icon">60dp</dimen>
+    <dimen name="ringing_avatar_radius">60dp</dimen>
+    <dimen name="ringing_avatar_size">120dp</dimen>
+    <dimen name="ringing_bottom_padding">32dp</dimen>
+    <dimen name="ringing_button_margin">32dp</dimen>
+    <dimen name="ringing_button_padding">20dp</dimen>
+    <dimen name="ringing_button_radius">35dp</dimen>
+    <dimen name="ringing_button_size">70dp</dimen>
+    <dimen name="ringing_contact_name_size">26sp</dimen>
+    <dimen name="ringing_info_size">14sp</dimen>
+    <dimen name="ringing_padding">24dp</dimen>
+    <dimen name="ringing_status_size">16sp</dimen>
+    <dimen name="selection_button_height">50dp</dimen>
+    <dimen name="selection_button_margin">12dp</dimen>
+    <dimen name="selection_icon_size">100dp</dimen>
+    <dimen name="selection_padding">24dp</dimen>
+    <dimen name="selection_subtitle_size">14sp</dimen>
+    <dimen name="selection_title_size">24sp</dimen>
+    <dimen name="status_text_size">13sp</dimen>
+    <dimen name="status_top_margin">12dp</dimen>
+    <dimen name="subtitle_top_margin">4dp</dimen>
+    <dimen name="welcome_bottom_margin">24dp</dimen>
+    <dimen name="welcome_text_size">22sp</dimen>
+    <string name="answer">Answer</string>
+    <string name="app_name"> Kasookoo SDK</string>
+    <string name="call_connection_lost">Call connection lost</string>
+    <string name="call_driver">Call Driver</string>
+    <string name="call_support">Call Support</string>
+    <string name="calling">Calling...</string>
+    <string name="connect_driver_desc">Connect to your assigned driver</string>
+    <string name="connected">Connected</string>
+    <string name="connecting">Connecting...</string>
+    <string name="connection_failed">Connection failed. Please try again.</string>
+    <string name="customer">Customer</string>
+    <string name="customer_role">I\'m a Customer</string>
+    <string name="decline">Decline</string>
+    <string name="default_web_client_id" translatable="false">123456789-abc123def456.apps.googleusercontent.com</string>
+    <string name="driver">Driver</string>
+    <string name="driver_role">I\'m a Driver</string>
+    <string name="end_call">End Call</string>
+    <string name="gcm_defaultSenderId" translatable="false">123456789</string>
+    <string name="google_api_key" translatable="false">AIzaSyDummy_API_Key_Replace_With_Real_One</string>
+    <string name="google_app_id" translatable="false">1:123456789:android:abc123def456</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDummy_API_Key_Replace_With_Real_One</string>
+    <string name="google_storage_bucket" translatable="false">call-kotlin-demo.appspot.com</string>
+    <string name="incoming_call">Incoming Call</string>
+    <string name="mute">Mute</string>
+    <string name="permissions_required">Permissions are required for voice calling</string>
+    <string name="project_id" translatable="false">call-kotlin-demo</string>
+    <string name="ringing">Ringing...</string>
+    <string name="select_role">Select your role to continue</string>
+    <string name="speaker">Speaker</string>
+    <string name="speaker_coming_soon">Speaker toggle coming soon</string>
+    <string name="support">Support</string>
+    <string name="support_help_desc">Get help from customer support</string>
+    <string name="touch_answer">Touch to answer the call</string>
+    <string name="unmute">Unmute</string>
+    <string name="wait_connect">Please wait while we connect you</string>
+    <string name="welcome_customer">Welcome Customer!\nChoose who to call:</string>
+    <string name="welcome_driver">Driver Mode\nWaiting for incoming calls...</string>
+    <style name="Theme.CallKotlin" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorSecondaryVariant">@color/secondary_dark</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        
+        <item name="android:statusBarColor">@color/primary</item>
+        
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="Theme.CallKotlin.NoActionBar" parent="Theme.CallKotlin">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
