@@ -1,207 +1,90 @@
-# 📱  Kasookoo SDK SDK
+# 📱 Kasookoo SDK (Android)
 
-A powerful Android SDK for real-time voice communication between customers and drivers, built with LiveKit WebRTC technology and Firebase Cloud Messaging.
+Production-ready calling flows for Customer ↔ Driver and Support, built with LiveKit (WebRTC) and Firebase Cloud Messaging (FCM).
 
-## 🎯 Overview
+## What’s included
 
-The  Kasookoo SDK SDK enables seamless voice calling functionality in Android applications, specifically designed for ride-sharing, delivery, and customer service scenarios. It provides a complete solution for both customers initiating calls and drivers receiving them.
+- LiveKit integration with resilient audio setup (caller and callee symmetric)
+- Customer ↔ Driver call flows using two token APIs:
+  - `get-caller-livekit-token` (outgoing)
+  - `get-called-livekit-token` (incoming)
+- FCM-based incoming call notifications with strict routing rules
+- Registration/Login to register and update FCM tokens with backend
+- Device info as JSON object in all auth requests
+- In-call UI (mute, speaker), Ringing UI, and automatic state transitions
+- SIP-based Support calls (make/end) with dynamic `room_name`
 
-## ✨ Features
+## Requirements
 
-- 🎙️ **High-Quality Voice Calls** - Crystal clear audio using LiveKit WebRTC
-- 🔔 **Push Notifications** - Instant call notifications via Firebase FCM
-- 📊 **Call History Management** - Automatic tracking and storage
-- 🎨 **Ready-to-Use UI** - Beautiful call interfaces included
-- 🔄 **Real-Time Connection Status** - Live participant monitoring
-- 🛡️ **Robust Error Handling** - Comprehensive error management
+- Android 7.0+ (API 24), Target SDK 34
+- Kotlin 1.9+
+- A Firebase project with valid `google-services.json`
 
-## 📋 Prerequisites
+## Setup (summary)
 
-- **Android API Level**: 24+ (Android 7.0)
-- **Target SDK**: 34 (Android 14)
-- **Kotlin**: 1.9.22+
-- **Firebase Project** with FCM enabled
+1) Dependencies (Gradle): LiveKit, Firebase Messaging, Retrofit/OkHttp, Coroutines.  
+2) Permissions: INTERNET, ACCESS_NETWORK_STATE, RECORD_AUDIO, MODIFY_AUDIO_SETTINGS, POST_NOTIFICATIONS.  
+3) Firebase: add `google-services.json`, apply `com.google.gms.google-services` plugin.  
 
-## 🚀 Quick Start
+## Key modules/files
 
-### 1. Installation
+- `core/LiveKitManager.kt`: Connect/disconnect, call states, participant tracking, audio setup, forced transitions
+- `ui/MainActivity.kt`: Role-based entry, call initiation, global call type
+- `ui/RingingActivity.kt`: Incoming/outgoing ringing, token fetch for callee, auto-accept when launched from notification action, no accept UI in that path
+- `ui/CallActivity.kt`: In-call controls (mute, speaker), end-call UX
+- `service/KasookooFirebaseMessagingService` (file name `FirebaseMessagingService.kt`): Receives FCM and routes notifications per rules
+- `service/CallActionReceiver.kt`: Accept/Decline from notification; passes `auto_accept=true` for instant connect path
+- `data/ApiService.kt` + `data/ApiClient.kt`: Retrofit endpoints for caller/called tokens, registration and update, support make/end
+- `data/UserDataManager.kt` + `data/FirebaseTokenManager.kt`: Local user data and robust FCM token generation with retry/backoff
 
-Add dependencies to your `app/build.gradle`:
+## Call flows
 
-```gradle
-dependencies {
-    // Core LiveKit SDK - Stable version
-    implementation 'io.livekit:livekit-android:1.5.0'
-    
-    // Firebase for notifications
-    implementation platform('com.google.firebase:firebase-bom:32.6.0')
-    implementation 'com.google.firebase:firebase-messaging-ktx'
-    
-    // Networking
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
-    
-    // Coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
-}
-```
+### Customer → Driver (Customer calls)
+- App calls `get-caller-livekit-token` with:
+  - `room_name` (dynamic), `participant_identity`, `participant_identity_name`, `participant_identity_type = customer`, `caller_user_id`
+- Driver receives FCM type `customer_incoming_call`.
+- Driver taps Accept (notification) → app fetches called token via `get-called-livekit-token` with:
+  - `called_user_id` (driver), `participant_identity` (from driver device), `participant_identity_name`, `participant_identity_type = driver`, `room_name`
+- Driver Ringing screen: when accepted from notification, the accept UI is skipped (shows Connecting → Connected only).
+- When both join, customer becomes IN_CALL immediately; driver transitions to IN_CALL automatically.
 
-### 2. Permissions
+### Driver → Customer (Driver calls)
+- App calls `get-caller-livekit-token` with caller as driver (`participant_identity_type = driver`).
+- Customer receives FCM type `driver_incoming_call` and accepts from notification.
+- App fetches called token with `participant_identity_type = customer` and joins the room. Both UIs go IN_CALL.
 
-Add to `AndroidManifest.xml`:
+### Support call (SIP)
+- `makeSupportCall` with dynamic `room_name` and local `participant_name`.
+- Token from response is used to join LiveKit; support agent join flips state to IN_CALL.  
+- `endSupportCall` uses stored `participant_identity` and `room_name`.
 
-```xml
-<!-- Audio permissions -->
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+## Notification routing rules
 
-<!-- Network permissions -->
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+- `customer_incoming_call` → shown on Driver devices only
+- `driver_incoming_call` → shown on Customer devices only
+- We inspect local stored role to decide whether to show/suppress
+- Accept from notification sets `auto_accept=true`: the driver’s accept UI is hidden; the screen shows Connecting, then Connected
 
-<!-- Notification permissions -->
-<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-```
+## Authentication and FCM token registration
 
-### 3. Firebase Setup
+- Registration (`register-caller-or-called-for-firebase-token`):
+  - Body: `user_type`, `user_id`, `device_token` (FCM), `device_info` (JSON map), `device_type="android"`
+- Login/Update (`update-caller-or-called-for-firebase-token`):
+  - Body: `user_type`, `user_id`, `device_token` (old), `new_device_token` (fresh FCM), `device_info` (JSON map), `device_type="android"`
+- `device_info` is a JSON object, e.g. `{ platform, version, api_level, manufacturer, model, device_id }`
+- FCM token generation includes validation and retry with exponential backoff
 
-1. Download `google-services.json` from Firebase Console
-2. Place in your `app/` directory
-3. Apply plugin in `app/build.gradle`:
+## Participant identity
 
-```gradle
-plugins {
-    id 'com.google.gms.google-services'
-}
-```
+- `participant_identity` is derived from the local user’s name:  
+  `customer_{full_name_sanitized}` or `driver_{full_name_sanitized}`
+- The callee always sends its own role in `participant_identity_type`
 
-### 4. Initialize SDK
+## UI/UX notes
 
-```kotlin
-class YourApplication : Application() {
-    lateinit var liveKitManager: LiveKitManager
-    
-    override fun onCreate() {
-        super.onCreate()
-        liveKitManager = LiveKitManager(this)
-    }
-}
-```
-
-## 👥 End-User Implementation
-
-### Making a Call
-
-```kotlin
-class MainActivity : AppCompatActivity() {
-    private lateinit var liveKitManager: LiveKitManager
-    private val repository = CallRepository()
-    
-    private fun initiateCall() {
-        lifecycleScope.launch {
-            try {
-                // Get authentication token
-                val tokenResult = repository.getLiveKitToken("room-name", "user-id")
-                
-                tokenResult.onSuccess { response ->
-                    // Connect to call room
-                    liveKitManager.connectToRoom(
-                        token = response.accessToken,
-                        wsUrl = response.wsUrl,
-                        roomName = "room-name",
-                        callType = CallType.CUSTOMER
-                    )
-                }
-            } catch (e: Exception) {
-                handleError("Failed to initiate call: ${e.message}")
-            }
-        }
-    }
-}
-```
-
-### Monitoring Call State
-
-```kotlin
-// Observe call state changes
-lifecycleScope.launch {
-    liveKitManager.callState.collect { state ->
-        when (state) {
-            CallState.IDLE -> {
-                // No active call
-            }
-            CallState.CONNECTING -> {
-                showConnectingUI()
-            }
-            CallState.CONNECTED -> {
-                // Connected, waiting for driver
-            }
-            CallState.IN_CALL -> {
-                // Active call with driver
-                navigateToCallScreen()
-            }
-            CallState.ERROR -> {
-                handleCallError()
-            }
-        }
-    }
-}
-```
-
-### Call Controls
-
-```kotlin
-// During an active call
-class CallActivity : AppCompatActivity() {
-    
-    // Mute/unmute microphone
-    private fun toggleMute() {
-        liveKitManager.toggleMicrophone()
-        updateMuteButton()
-    }
-    
-    // Enable/disable speaker
-    private fun toggleSpeaker() {
-        audioManager.isSpeakerphoneOn = !audioManager.isSpeakerphoneOn
-        updateSpeakerButton()
-    }
-    
-    // End call
-    private fun endCall() {
-        liveKitManager.disconnectFromRoom()
-        finish()
-    }
-}
-```
-
-## 🚗 Driver Implementation
-
-### Setting Up as Driver
-
-```kotlin
-class DriverActivity : AppCompatActivity() {
-    
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate()
-        
-        // Configure as driver
-        setupDriverMode()
-        
-        // Connect to monitoring room
-        connectToDriverRoom()
-    }
-    
-    private fun setupDriverMode() {
-        // Driver-specific UI setup
-        isCustomer = false
-        showDriverInterface()
-        
-        // Monitor for incoming calls
-        observeIncomingCalls()
-    }
-}
-```
+- Ringing (driver, accepted via notification): accept UI removed automatically
+- Background updated to white/green theme; driver’s Support card hidden; logout icon updated
+- Speaker control: real toggle with icons; default speaker ON in-call and restored on exit
 
 ### Handling Incoming Calls
 
@@ -271,27 +154,11 @@ class DriverCallActivity : AppCompatActivity() {
 }
 ```
 
-## 🔔 Notification System
+## Disconnect behavior
 
-### Setting Up Notifications
-
-```kotlin
-// Create notification channel
-private fun createNotificationChannel() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        val channel = NotificationChannel(
-            CHANNEL_ID,
-            "Call Notifications",
-            NotificationManager.IMPORTANCE_HIGH
-        ).apply {
-            description = "Notifications for incoming calls"
-        }
-        
-        val notificationManager = getSystemService(NotificationManager::class.java)
-        notificationManager.createNotificationChannel(channel)
-    }
-}
-```
+- End call sets local state to `IDLE` immediately and disconnects the LiveKit room; the remote peer is notified by LiveKit
+- Callee path ensures global call type is set so the End button always works
+- If call type is already cleared, the in-call screen finishes gracefully
 
 ### Handling Call Actions
 
@@ -317,110 +184,46 @@ class CallActionReceiver : BroadcastReceiver() {
 }
 ```
 
-## 📊 Call History Management
+## API (actual backend contract used)
 
-### Tracking Calls
-
-```kotlin
-val callHistoryManager = CallHistoryManager(context)
-
-// Get call history
-val callHistory = callHistoryManager.getCallHistory()
-
-// Add new call record
-val callRecord = CallRecord(
-    id = UUID.randomUUID().toString(),
-    callType = CallType.CUSTOMER,
-    participantIdentity = "customer_123",
-    startTime = System.currentTimeMillis(),
-    endTime = null,
-    duration = 0,
-    status = CallStatus.IN_PROGRESS
-)
-
-callHistoryManager.addCallRecord(callRecord)
-```
-
-### Call Analytics
-
-```kotlin
-// Get statistics
-class CallAnalytics {
-    fun getTotalCalls(): Int = callHistory.size
-    
-    fun getAverageCallDuration(): Long {
-        return callHistory
-            .filter { it.status == CallStatus.COMPLETED }
-            .map { it.duration }
-            .average()
-            .toLong()
-    }
-    
-    fun getAnswerRate(): Float {
-        val totalCalls = callHistory.filter { it.callType == CallType.DRIVER }.size
-        val answeredCalls = callHistory.filter { 
-            it.callType == CallType.DRIVER && it.status == CallStatus.COMPLETED 
-        }.size
-        
-        return if (totalCalls > 0) (answeredCalls.toFloat() / totalCalls) * 100 else 0f
-    }
-}
-```
-
-## 🌐 Backend Integration
-
-### API Endpoint
-
-Your backend needs to provide authentication tokens:
-
-```bash
-POST https://your-api.com/api/v1/bot/sdk/get-token
-Content-Type: application/json
-
-{
-    "room_name": "sdk-room",
-    "participant_identity": "customer_123"
-}
-```
-
-### Response Format
-
+Caller (outgoing):
 ```json
+POST /api/v1/bot/sdk/get-caller-livekit-token
 {
-    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
-    "wsUrl": "wss://your-livekit-server.com"
+  "room_name": "room_...",
+  "participant_identity": "customer_vasyl",
+  "participant_identity_name": "Vasyl",
+  "participant_identity_type": "customer|driver",
+  "caller_user_id": "..."
 }
 ```
 
-### API Client Implementation
-
-```kotlin
-object ApiClient {
-    private const val BASE_URL = "https://your-api.com/"
-    
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-    
-    val apiService: ApiService = retrofit.create(ApiService::class.java)
+Called (incoming):
+```json
+POST /api/v1/bot/sdk/get-called-livekit-token
+{
+  "room_name": "room_...",
+  "participant_identity": "driver_waseem_akhtar",
+  "participant_identity_name": "Waseem Akhtar",
+  "participant_identity_type": "driver|customer",
+  "called_user_id": "..."
 }
-
-interface ApiService {
-    @POST("api/v1/bot/sdk/get-token")
-    suspend fun getLiveKitToken(@Body request: TokenRequest): Response<TokenResponse>
-}
-
-data class TokenRequest(
-    val room_name: String,
-    val participant_identity: String
-)
-
-data class TokenResponse(
-    val accessToken: String,
-    val wsUrl: String
-)
 ```
+
+Token responses are flat objects: `{ "accessToken": "...", "wsUrl": "wss://..." }`
+
+## Troubleshooting
+
+- Notifications go to the wrong device: verify FCM type and local stored role; routing suppresses mismatched roles
+- Called token failure due to lifecycle cancellation: Ringing uses a SupervisorJob scope and suppresses finish until token arrives
+- “Call already ended” when ending from callee: fixed by setting global call type on join; screen now finishes even if type is cleared
+
+## Version
+
+- Version: 1.1.0  
+- Last Updated: August 2025  
+- Min Android: API 24  
+- Target Android: API 34
 
 ## 🧪 Testing
 
