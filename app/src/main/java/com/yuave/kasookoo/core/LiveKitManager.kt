@@ -240,6 +240,8 @@ class LiveKitManager(private val context: Context) {
                             Log.d(TAG, "=== PARTICIPANT CONNECTED ===")
                             Log.d(TAG, "New participant connected: ${event.participant.identity}")
                             Log.d(TAG, "Total participants in room: ${currentRoom.remoteParticipants.size + 1}")
+                            Log.d(TAG, "Current call type: ${_callType.value}")
+                            Log.d(TAG, "Current call state: ${_callState.value}")
                             
                             // Update participant count
                             _participantCount.value = currentRoom.remoteParticipants.size + 1
@@ -279,25 +281,41 @@ class LiveKitManager(private val context: Context) {
                             }
                             
                             // For support calls, when support joins, change to IN_CALL
-                            if (_callType.value == CallType.SUPPORT && 
-                                event.participant.identity?.contains("sip") == true) {
-                                Log.d(TAG, "✅ Support accepted the call!")
-                                _callState.value = CallState.IN_CALL
-                                _roomConnectionStatus.value = RoomConnectionStatus.CALL_ACTIVE
+                            if (_callType.value == CallType.SUPPORT) {
+                                // Check if this is a support participant (any remote participant in support call)
+                                val participantIdentity = event.participant.identity
+                                val isSupportParticipant = participantIdentity != null && 
+                                    (participantIdentity.contains("sip") || 
+                                     participantIdentity.contains("support") ||
+                                     participantIdentity.contains("agent"))
                                 
-                                // Ensure audio is properly set up for support call
-                                CoroutineScope(Dispatchers.Main).launch {
-                                    try {
-                                        Log.d(TAG, "🆘 Setting up audio for support call after support joined...")
-                                        setupSupportCallAudio(currentRoom)
-                                        
-                                        // Also ensure remote participant's audio tracks are enabled
-                                        // Note: LiveKit handles audio track subscription automatically
-                                        Log.d(TAG, "📡 Support participant joined, audio should be working")
-                                        
-                                        Log.d(TAG, "✅ Support call audio setup completed after support joined")
-                                    } catch (e: Exception) {
-                                        Log.e(TAG, "❌ Error setting up support audio after support joined: ${e.message}")
+                                if (isSupportParticipant) {
+                                    Log.d(TAG, "✅ Support accepted the call! Participant: $participantIdentity")
+                                    _callState.value = CallState.IN_CALL
+                                    _roomConnectionStatus.value = RoomConnectionStatus.CALL_ACTIVE
+                                    
+                                    // Ensure audio is properly set up for support call
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        try {
+                                            Log.d(TAG, "🆘 Setting up audio for support call after support joined...")
+                                            setupSupportCallAudio(currentRoom)
+                                            
+                                            // Also ensure remote participant's audio tracks are enabled
+                                            // Note: LiveKit handles audio track subscription automatically
+                                            Log.d(TAG, "📡 Support participant joined, audio should be working")
+                                            
+                                            Log.d(TAG, "✅ Support call audio setup completed after support joined")
+                                        } catch (e: Exception) {
+                                            Log.e(TAG, "❌ Error setting up support audio after support joined: ${e.message}")
+                                        }
+                                    }
+                                } else {
+                                    Log.d(TAG, "🔄 Support call: Remote participant joined but not identified as support: $participantIdentity")
+                                    // Fallback: if we have any remote participant in support call, consider it active
+                                    if (currentRoom.remoteParticipants.isNotEmpty()) {
+                                        Log.d(TAG, "✅ Support call: Remote participant present, transitioning to IN_CALL")
+                                        _callState.value = CallState.IN_CALL
+                                        _roomConnectionStatus.value = RoomConnectionStatus.CALL_ACTIVE
                                     }
                                 }
                             }
@@ -811,6 +829,18 @@ class LiveKitManager(private val context: Context) {
             Log.e(TAG, "Error during standard audio setup: ${e.message}")
             Log.d(TAG, "Standard audio setup error:", e)
         }
+    }
+    
+    // Check if there are remote participants in the room
+    fun hasRemoteParticipants(): Boolean {
+        return room?.remoteParticipants?.isNotEmpty() == true
+    }
+    
+    // Force transition to IN_CALL state (used as fallback for support calls)
+    fun forceInCallState() {
+        Log.d(TAG, "🔄 Force transitioning to IN_CALL state")
+        _callState.value = CallState.IN_CALL
+        _roomConnectionStatus.value = RoomConnectionStatus.CALL_ACTIVE
     }
 }
 

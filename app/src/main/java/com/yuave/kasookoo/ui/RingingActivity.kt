@@ -10,6 +10,8 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import com.yuave.kasookoo.CallApplication
 import com.yuave.kasookoo.R
 import com.yuave.kasookoo.core.CallState
@@ -155,6 +157,13 @@ class RingingActivity : AppCompatActivity() {
                             // Waiting for support to accept the call
                             Log.d(TAG, "Support call waiting for acceptance...")
                             updateUIForWaitingForAcceptance()
+                            
+                            // Additional safety check: if we have remote participants, transition to IN_CALL
+                            val hasRemoteParticipants = liveKitManager.hasRemoteParticipants()
+                            if (hasRemoteParticipants) {
+                                Log.d(TAG, "🔄 Support call: Remote participants detected while waiting, forcing IN_CALL transition")
+                                liveKitManager.forceInCallState()
+                            }
                         }
                         CallState.WAITING_FOR_DRIVER_ACCEPTANCE -> {
                             // Waiting for driver to accept the call after customer joined
@@ -184,6 +193,22 @@ class RingingActivity : AppCompatActivity() {
                         else -> {
                             // Stay on ringing screen
                         }
+                    }
+                }
+            }
+            
+            // Additional safety mechanism: Periodic check for stuck support calls
+            lifecycleScope.launch {
+                delay(5000) // Wait 5 seconds after support call starts
+                while (isActive && !isFinishing) {
+                    delay(2000) // Check every 2 seconds
+                    
+                    // If we're still waiting for acceptance but have remote participants, force transition
+                    if (liveKitManager.callState.value == CallState.WAITING_FOR_ACCEPTANCE && 
+                        liveKitManager.hasRemoteParticipants()) {
+                        Log.d(TAG, "🔄 Support call safety check: Remote participants present but still waiting, forcing IN_CALL")
+                        liveKitManager.forceInCallState()
+                        break
                     }
                 }
             }
