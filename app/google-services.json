@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "459725159190",
-    "project_id": "kasookoo-sdk",
-    "storage_bucket": "kasookoo-sdk.firebasestorage.app"
+    "project_number": "385695188894",
+    "project_id": "kasookoo-sdk-f7f3f",
+    "storage_bucket": "kasookoo-sdk-f7f3f.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:459725159190:android:3f3a2fdc747d30a7f7ee37",
+        "mobilesdk_app_id": "1:385695188894:android:e3bf62a427e89fb9f4b88f",
         "android_client_info": {
           "package_name": "com.yuave.kasookoo"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDtk38MuXWTDZ309FCvBy6-fWG-1R1k9h0"
+          "current_key": "AIzaSyDMt7c4azisspYgWbw9y9ep6F3QWHyIuv8"
         }
       ],
       "services": {

@@ -11,15 +11,6 @@ interface ApiService {
         const val BASE_URL = "https://voiceai.kasookoo.com/"
     }
     
-    @POST("api/v1/bot/sdk/get-token")
-    suspend fun getLiveKitToken(@Body request: TokenRequest): Response<TokenResponse>
-    
-    @GET("api/v1/drivers/{driverId}/details")
-    suspend fun getDriverDetails(@Path("driverId") driverId: String): Response<DriverDetails>
-    
-    // Legacy support call API (keeping for backward compatibility)
-    @POST("api/v1/support/initiate-call")
-    suspend fun initiateSupportCall(@Body request: SupportCallRequest): Response<SupportCallResponse>
     
     // New SIP-based call support APIs
     @POST("api/v1/bot/sdk-sip/calls/make")
@@ -47,45 +38,14 @@ interface ApiService {
     
     @POST("api/v1/bot/sdk/get-called-livekit-token")
     suspend fun getCalledLiveKitToken(@Body request: CalledTokenRequest): Response<CalledTokenResponse>
+
+    // Logout/unregister device token
+    @POST("api/v1/bot/notifications/unregister-token")
+    suspend fun unregisterCallerOrCalledForFirebaseToken(@Body request: UnregisterCallerRequest): Response<UnregisterCallerResponse>
 }
 
-// Request/Response models for LiveKit token API
-data class TokenRequest(
-    val room_name: String,
-    val participant_identity: String
-)
-
-data class TokenResponse(
-    val accessToken: String,  // Changed to match backend response
-    val wsUrl: String
-)
-
-// Driver details models (placeholder)
-data class DriverDetails(
-    val driverId: String,
-    val name: String,
-    val phoneNumber: String,
-    val status: String,
-    val location: DriverLocation?
-)
-
-data class DriverLocation(
-    val latitude: Double,
-    val longitude: Double
-)
-
-// Legacy support call models (keeping for backward compatibility)
-data class SupportCallRequest(
-    val customerId: String,
-    val issueType: String,
-    val priority: String = "normal"
-)
-
-data class SupportCallResponse(
-    val callId: String,
-    val estimatedWaitTime: Int,
-    val queuePosition: Int
-)
+// Removed legacy and unused models/endpoints: TokenRequest/Response, DriverDetails/DriverLocation,
+// and legacy SupportCallRequest/Response.
 
 // New SIP-based support call models
 data class SupportCallMakeRequest(
@@ -185,7 +145,8 @@ data class CallerTokenRequest(
     val participant_identity: String,
     val participant_identity_name: String,
     val participant_identity_type: String,
-    val caller_user_id: String
+    val caller_user_id: String,
+    val device_type: String = "android"
 )
 
 data class CallerTokenResponse(
@@ -198,10 +159,26 @@ data class CalledTokenRequest(
     val participant_identity: String,
     val participant_identity_name: String,
     val participant_identity_type: String,
-    val called_user_id: String
+    val called_user_id: String,
+    val device_type: String = "android"
 )
 
 data class CalledTokenResponse(
     val accessToken: String,
     val wsUrl: String
 ) 
+
+// Unregister (logout) models
+data class UnregisterCallerRequest(
+    val user_type: String,
+    val user_id: String,
+    val device_token: String,
+    val device_type: String = "android"
+)
+
+data class UnregisterCallerResponse(
+    val success: Boolean,
+    val message: String,
+    val data: String?,
+    val error: String?
+)

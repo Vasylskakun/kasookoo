@@ -203,6 +203,9 @@ class KasookooFirebaseMessagingService : FirebaseMessagingService() {
             putExtra("call_type", callType)
             putExtra("room_name", roomName)
             putExtra("participant_identity", participantIdentity)
+            // Include local user role so receiver can route correctly if needed
+            val localUserType = userDataManager.getUserType()
+            putExtra("local_user_type", localUserType)
         }
         
         val declinePendingIntent = PendingIntent.getBroadcast(

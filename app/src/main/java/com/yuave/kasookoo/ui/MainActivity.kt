@@ -23,6 +23,7 @@ import android.content.pm.PackageManager
 import android.view.View
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     
@@ -287,47 +288,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
     
-    private fun observeRoomStatus() {
-        lifecycleScope.launch {
-            liveKitManager.roomConnectionStatus.collect { status ->
-                Log.d(TAG, "Driver room status: $status")
-                updateDriverStatus(status)
-            }
-        }
-        
-        lifecycleScope.launch {
-            liveKitManager.participants.collect { participants ->
-                Log.d(TAG, "Driver participants: ${liveKitManager.getParticipantDetails()}")
-                updateDriverStatusText()
-            }
-        }
-    }
-    
-    private fun updateDriverStatus(status: RoomConnectionStatus) {
-        val statusText = when (status) {
-            RoomConnectionStatus.CONNECTING -> "Connecting to room..."
-            RoomConnectionStatus.CONNECTED -> "Connected to room - Waiting for customers"
-            RoomConnectionStatus.MULTIPLE_PARTICIPANTS -> "Customer joined - Incoming call!"
-            RoomConnectionStatus.CALL_ACTIVE -> "Call in progress"
-            RoomConnectionStatus.DISCONNECTED -> "Disconnected from room"
-            RoomConnectionStatus.ERROR -> "Connection error"
-            else -> "Unknown status"
-        }
-        
-        binding.tvWelcome.text = "Driver Mode\n$statusText"
-        Log.d(TAG, "Driver status updated: $statusText")
-    }
-    
-    private fun updateDriverStatusText() {
-        val participantDetails = liveKitManager.getParticipantDetails()
-        Log.d(TAG, "Current room participants: $participantDetails")
-        
-        if (liveKitManager.hasCustomerAndDriver()) {
-            Log.d(TAG, "🎉 SUCCESS: Customer and Driver are in the same room!")
-            Log.d(TAG, "Room: ${getRoomName()}")
-            Log.d(TAG, "Participants: $participantDetails")
-        }
-    }
+    // Removed unused room status observers and related helper methods.
     
     private fun initiateCall(callType: CallType) {
         lifecycleScope.launch {
@@ -586,14 +547,51 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun logout() {
-        // Clear only login status, keep user data
-        userDataManager.clearLoginStatus()
-        
-        // Navigate back to user selection (which will redirect to login/registration)
-        val intent = Intent(this, UserSelectionActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)
-        finish()
+        // Perform full logout: unregister device on backend, delete FCM token, clear local data
+        lifecycleScope.launch {
+            try {
+                val userId = userDataManager.getUserId()
+                val userType = userDataManager.getUserType()
+                val deviceToken = userDataManager.getStoredDeviceToken()
+
+                if (!userId.isNullOrBlank() && !userType.isNullOrBlank() && !deviceToken.isNullOrBlank() && deviceToken != "no_fcm_token") {
+                    val unregisterResult = repository.unregisterCallerOrCalledForFirebaseToken(
+                        userType = userType,
+                        userId = userId,
+                        deviceToken = deviceToken
+                    )
+
+                    if (unregisterResult.isSuccess) {
+                        Log.d(TAG, "✅ Unregister device token success: ${unregisterResult.getOrNull()?.message}")
+                    } else {
+                        Log.e(TAG, "❌ Unregister failed: ${unregisterResult.exceptionOrNull()?.message}")
+                    }
+                } else {
+                    Log.w(TAG, "⚠️ Missing userId/userType/deviceToken; skipping unregister call")
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ Error during unregister: ${e.message}")
+            } finally {
+                // Delete current FCM token (rotate)
+                try {
+                    FirebaseMessaging.getInstance().deleteToken().addOnCompleteListener { task ->
+                        Log.d(TAG, "🔄 FCM token delete complete: ${task.isSuccessful}")
+                    }
+                } catch (e: Exception) {
+                    Log.e(TAG, "❌ Failed to delete FCM token: ${e.message}")
+                }
+
+                // Prefer a soft logout so the app routes to Login (keeps profile but clears login + tokens)
+                userDataManager.clearLoginStatus()
+                runCatching { userDataManager.updateDeviceToken("no_fcm_token") }
+
+                // Navigate back to user selection
+                val intent = Intent(this@MainActivity, UserSelectionActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
     }
     
     override fun onDestroy() {

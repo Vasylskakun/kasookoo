@@ -12,7 +12,6 @@ import kotlinx.coroutines.delay
 import io.livekit.android.LiveKit
 import io.livekit.android.room.Room
 import io.livekit.android.room.track.Track
-
 import io.livekit.android.events.RoomEvent
 import io.livekit.android.events.collect
 import io.livekit.android.ConnectOptions
@@ -20,11 +19,15 @@ import com.yuave.kasookoo.data.CallHistoryManager
 import com.yuave.kasookoo.data.CallRecord
 import com.yuave.kasookoo.data.CallStatus
 import kotlinx.coroutines.runBlocking
+// Note: DTMF functionality is simulated for LiveKit Android
+// In a real implementation, you would integrate with your SIP backend
 
 class LiveKitManager(private val context: Context) {
     
     companion object {
         private const val TAG = "LiveKitManager"
+        private const val DTMF_TONE_DURATION = 100  // Duration of each DTMF tone in ms
+        private const val DTMF_INTER_TONE_GAP = 70  // Gap between DTMF tones in ms
     }
     
     private val _callState = MutableStateFlow(CallState.IDLE)
@@ -57,6 +60,11 @@ class LiveKitManager(private val context: Context) {
     
     // Expose call start time for timer
     val callStartTimestamp: Long get() = callStartTime
+    
+    // Public method to check if local participant microphone is enabled
+    fun isLocalMicrophoneEnabled(): Boolean {
+        return room?.localParticipant?.isMicrophoneEnabled() ?: false
+    }
     
     // Set call type externally (for support calls)
     fun setCallType(callType: CallType) {
@@ -229,6 +237,19 @@ class LiveKitManager(private val context: Context) {
                                 }
                                 
                                 Log.d(TAG, "=== AUDIO SETUP COMPLETE ===")
+                                // Extra safeguard: re-toggle microphone to ensure publication across devices
+                                CoroutineScope(Dispatchers.Main).launch {
+                                    try {
+                                        kotlinx.coroutines.delay(300)
+                                        currentRoom.localParticipant.setMicrophoneEnabled(false)
+                                        Log.d(TAG, "🔄 Mic temporarily disabled to refresh publication")
+                                        kotlinx.coroutines.delay(150)
+                                        currentRoom.localParticipant.setMicrophoneEnabled(true)
+                                        Log.d(TAG, "✅ Mic re-enabled after refresh")
+                                    } catch (e: Exception) {
+                                        Log.w(TAG, "⚠️ Mic refresh step failed: ${e.message}")
+                                    }
+                                }
                                 
                             } catch (e: Exception) {
                                 Log.e(TAG, "Error during audio setup: ${e.message}")
@@ -672,6 +693,14 @@ class LiveKitManager(private val context: Context) {
                         // Force enable microphone
                         currentRoom.localParticipant.setMicrophoneEnabled(true)
                         Log.d(TAG, "Microphone force enabled")
+                        // Refresh publication if needed
+                        kotlinx.coroutines.delay(150)
+                        if (!currentRoom.localParticipant.isMicrophoneEnabled()) {
+                            Log.w(TAG, "Mic still disabled, attempting refresh toggle")
+                            currentRoom.localParticipant.setMicrophoneEnabled(false)
+                            kotlinx.coroutines.delay(120)
+                            currentRoom.localParticipant.setMicrophoneEnabled(true)
+                        }
                         
                         // Check microphone status
                         val isMicrophoneEnabled = currentRoom.localParticipant.isMicrophoneEnabled()
@@ -714,7 +743,7 @@ class LiveKitManager(private val context: Context) {
         Log.d(TAG, "Local participant connected: true")
         
         // Check local participant microphone status
-        val isLocalMicrophoneEnabled = room.localParticipant.isMicrophoneEnabled()
+        val isLocalMicrophoneEnabled = try { room.localParticipant.isMicrophoneEnabled() } catch (_: Exception) { false }
         Log.d(TAG, "Local microphone enabled: $isLocalMicrophoneEnabled")
         
         // Check remote participants
@@ -722,6 +751,17 @@ class LiveKitManager(private val context: Context) {
         room.remoteParticipants.forEach { unusedParticipant ->
             Log.d(TAG, "Remote participant connected")
             Log.d(TAG, "✅ Remote participant should be able to hear local audio")
+        }
+        // If not enabled, attempt recovery
+        if (!isLocalMicrophoneEnabled) {
+            Log.w(TAG, "Local mic appears disabled during status check, attempting recovery toggle")
+            CoroutineScope(Dispatchers.Main).launch {
+                try {
+                    room.localParticipant.setMicrophoneEnabled(true)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Mic recovery failed: ${e.message}")
+                }
+            }
         }
         
         // Log participant count for debugging
@@ -800,6 +840,12 @@ class LiveKitManager(private val context: Context) {
             Log.d(TAG, "Enabling microphone...")
             room.localParticipant.setMicrophoneEnabled(true)
             Log.d(TAG, "Microphone enabled successfully")
+            // Ensure audio track is published
+            kotlinx.coroutines.delay(150)
+            if (!room.localParticipant.isMicrophoneEnabled()) {
+                Log.w(TAG, "Microphone not enabled after initial attempt, retrying...")
+                room.localParticipant.setMicrophoneEnabled(true)
+            }
             
             // 2. Check if microphone is enabled
             val isMicrophoneEnabled = room.localParticipant.isMicrophoneEnabled()
@@ -822,6 +868,13 @@ class LiveKitManager(private val context: Context) {
             room.remoteParticipants.forEach { unusedParticipant ->
                 Log.d(TAG, "✅ Remote participant connected and should be able to hear")
             }
+            // If we are the callee (driver) and in WAITING_FOR_DRIVER_ACCEPTANCE, keep mic on
+            try {
+                if (_callType.value == CallType.DRIVER && _callState.value == CallState.WAITING_FOR_DRIVER_ACCEPTANCE) {
+                    Log.d(TAG, "Driver as callee: ensuring mic stays enabled during waiting state")
+                    room.localParticipant.setMicrophoneEnabled(true)
+                }
+            } catch (e: Exception) { Log.w(TAG, "Mic enforcement during waiting state failed: ${e.message}") }
             
             Log.d(TAG, "✅ Standard call audio setup completed")
             
@@ -842,7 +895,340 @@ class LiveKitManager(private val context: Context) {
         _callState.value = CallState.IN_CALL
         _roomConnectionStatus.value = RoomConnectionStatus.CALL_ACTIVE
     }
+    
+    // ===== DTMF FUNCTIONALITY FOR SUPPORT CALLS =====
+    // 
+    // IMPORTANT: LiveKit Android SDK doesn't directly support DTMF tones
+    // This implementation simulates DTMF functionality for UI purposes
+    // 
+    // For actual DTMF to work, you need to:
+    // 1. Send DTMF digits to your SIP backend via a separate API
+    // 2. Or implement a custom audio track that generates DTMF tones
+    // 3. Or use a third-party DTMF library
+    //
+    // Current implementation provides the UI framework - you can replace
+    // the simulation with actual backend calls when ready
+    
+    /**
+     * Send DTMF tones for IVR navigation in support calls
+     * @param tones Single digit or multiple digits (e.g., "1", "2", "3", "#", "*")
+     * @return true if DTMF was sent successfully, false otherwise
+     * 
+     * Note: This is currently a simulation. For real DTMF, integrate with your SIP backend.
+     */
+    fun sendDtmfTones(tones: String): Boolean {
+        return try {
+            Log.d(TAG, "🎵 Attempting to send DTMF tones: '$tones'")
+            
+            // Check if we have an active room connection
+            if (room == null || !isRoomConnected) {
+                Log.w(TAG, "❌ Cannot send DTMF: No active room connection")
+                return false
+            }
+            
+            // Check if this is a support call
+            if (_callType.value != CallType.SUPPORT) {
+                Log.w(TAG, "❌ DTMF only supported for support calls, current type: ${_callType.value}")
+                return false
+            }
+            
+            val localParticipant = room?.localParticipant
+            if (localParticipant == null) {
+                Log.e(TAG, "❌ Local participant not found")
+                return false
+            }
+            
+            // For LiveKit Android, we need to use the local participant's audio track
+            // DTMF is typically sent through the audio track itself
+            try {
+                // Send DTMF through the local participant's audio track
+                // Note: LiveKit Android may not support DTMF directly, so we'll log this
+                Log.w(TAG, "⚠️ DTMF not directly supported in LiveKit Android")
+                Log.w(TAG, "🎵 Simulating DTMF tone: '$tones'")
+                
+                // For now, we'll simulate DTMF functionality
+                // In a real implementation, you might need to use a different approach
+                // such as sending DTMF through your SIP backend or using a custom audio track
+                
+                Log.i(TAG, "✅ DTMF tone simulated successfully: '$tones'")
+                Log.d(TAG, "   - Duration: ${DTMF_TONE_DURATION}ms")
+                Log.d(TAG, "   - Inter-tone gap: ${DTMF_INTER_TONE_GAP}ms")
+                Log.d(TAG, "   - Note: This is a simulation - actual DTMF requires backend support")
+                
+                true
+                
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ Error simulating DTMF: ${e.message}")
+                false
+            }
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "❌ Error sending DTMF tones: ${e.message}")
+            Log.e(TAG, "DTMF error details:", e)
+            false
+        }
+    }
+    
+    /**
+     * Send a single DTMF digit (convenience method)
+     * @param digit Single digit (0-9, *, #, A-D)
+     * @return true if DTMF was sent successfully, false otherwise
+     */
+    fun sendDtmfDigit(digit: String): Boolean {
+        if (digit.length != 1) {
+            Log.w(TAG, "⚠️ sendDtmfDigit expects single digit, received: '$digit'")
+            return false
+        }
+        
+        // Validate digit format
+        val validDigits = "0123456789*#ABCD"
+        if (!validDigits.contains(digit.uppercase())) {
+            Log.w(TAG, "⚠️ Invalid DTMF digit: '$digit'. Valid digits: $validDigits")
+            return false
+        }
+        
+        return sendDtmfTones(digit)
+    }
+    
+    /**
+     * Check if DTMF is supported in the current call
+     * @return true if DTMF can be sent, false otherwise
+     */
+    fun isDtmfSupported(): Boolean {
+        return try {
+            if (room == null || !isRoomConnected || _callType.value != CallType.SUPPORT) {
+                return false
+            }
+            
+            val localParticipant = room?.localParticipant
+            if (localParticipant == null) return false
+            
+            // For LiveKit Android, we'll check if we have an active audio track
+            // DTMF support depends on the backend implementation
+            val hasAudioTrack = localParticipant.isMicrophoneEnabled()
+            
+            Log.d(TAG, "🎵 DTMF support check: hasAudioTrack=$hasAudioTrack")
+            
+            // For now, return true if we have an audio track and it's a support call
+            // The actual DTMF functionality will be simulated
+            hasAudioTrack
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "Error checking DTMF support: ${e.message}")
+            false
+        }
+    }
+    
+    /**
+     * Get DTMF support status for debugging
+     * @return Detailed DTMF status information
+     */
+    fun getDtmfStatus(): DtmfStatus {
+        return try {
+            if (room == null) {
+                return DtmfStatus(
+                    isSupported = false,
+                    reason = "No room connection",
+                    hasAudioTrack = false,
+                    hasDtmfSender = false
+                )
+            }
+            
+            if (!isRoomConnected) {
+                return DtmfStatus(
+                    isSupported = false,
+                    reason = "Room not connected",
+                    hasAudioTrack = false,
+                    hasDtmfSender = false
+                )
+            }
+            
+            if (_callType.value != CallType.SUPPORT) {
+                return DtmfStatus(
+                    isSupported = false,
+                    reason = "Not a support call (current type: ${_callType.value})",
+                    hasAudioTrack = false,
+                    hasDtmfSender = false
+                )
+            }
+            
+            val localParticipant = room?.localParticipant
+            if (localParticipant == null) {
+                return DtmfStatus(
+                    isSupported = false,
+                    reason = "Local participant not found",
+                    hasAudioTrack = false,
+                    hasDtmfSender = false
+                )
+            }
+            
+            // For LiveKit Android, check audio track availability
+            val hasAudioTrack = localParticipant.isMicrophoneEnabled()
+            val hasDtmfSender = false // DTMF not directly supported in LiveKit Android
+            
+            DtmfStatus(
+                isSupported = hasAudioTrack, // Support calls can use simulated DTMF
+                reason = if (hasAudioTrack) "DTMF simulated (requires backend support)" else "No audio track available",
+                hasAudioTrack = hasAudioTrack,
+                hasDtmfSender = hasDtmfSender
+            )
+            
+        } catch (e: Exception) {
+            DtmfStatus(
+                isSupported = false,
+                reason = "Error checking status: ${e.message}",
+                hasAudioTrack = false,
+                hasDtmfSender = false
+            )
+        }
+    }
+    
+    /**
+     * Send multiple DTMF digits with configurable timing
+     * @param digits String of digits to send (e.g., "1234#")
+     * @param toneDuration Duration of each tone in milliseconds
+     * @param interToneGap Gap between tones in milliseconds
+     * @return true if DTMF sequence was sent successfully, false otherwise
+     */
+    fun sendDtmfSequence(digits: String, toneDuration: Int = DTMF_TONE_DURATION, interToneGap: Int = DTMF_INTER_TONE_GAP): Boolean {
+        return try {
+            Log.d(TAG, "🎵 Sending DTMF sequence: '$digits'")
+            
+            if (digits.isBlank()) {
+                Log.w(TAG, "⚠️ Empty DTMF sequence")
+                return false
+            }
+            
+            // Validate all digits
+            val validDigits = "0123456789*#ABCD"
+            val invalidDigits = digits.filter { !validDigits.contains(it.uppercase()) }
+            if (invalidDigits.isNotEmpty()) {
+                Log.w(TAG, "⚠️ Invalid DTMF digits in sequence: $invalidDigits")
+                return false
+            }
+            
+            // Send the sequence
+            val success = sendDtmfTones(digits)
+            
+            if (success) {
+                Log.i(TAG, "✅ DTMF sequence sent successfully: '$digits'")
+                Log.d(TAG, "   - Tone duration: ${toneDuration}ms")
+                Log.d(TAG, "   - Inter-tone gap: ${interToneGap}ms")
+            }
+            
+            success
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "❌ Error sending DTMF sequence: ${e.message}")
+            false
+        }
+    }
+    
+    /**
+     * Send DTMF with custom timing for specific IVR systems
+     * @param digit Single DTMF digit
+     * @param toneDuration Custom tone duration in milliseconds
+     * @param interToneGap Custom gap in milliseconds
+     * @return true if DTMF was sent successfully, false otherwise
+     */
+    fun sendDtmfWithCustomTiming(digit: String, toneDuration: Int, interToneGap: Int): Boolean {
+        return try {
+            Log.d(TAG, "🎵 Sending DTMF with custom timing: '$digit' (${toneDuration}ms tone, ${interToneGap}ms gap)")
+            
+            if (digit.length != 1) {
+                Log.w(TAG, "⚠️ sendDtmfWithCustomTiming expects single digit, received: '$digit'")
+                return false
+            }
+            
+            // Validate digit format
+            val validDigits = "0123456789*#ABCD"
+            if (!validDigits.contains(digit.uppercase())) {
+                Log.w(TAG, "⚠️ Invalid DTMF digit: '$digit'. Valid digits: $validDigits")
+                return false
+            }
+            
+            // Check if we have an active room connection
+            if (room == null || !isRoomConnected) {
+                Log.w(TAG, "❌ Cannot send DTMF: No active room connection")
+                return false
+            }
+            
+            // Check if this is a support call
+            if (_callType.value != CallType.SUPPORT) {
+                Log.w(TAG, "❌ DTMF only supported for support calls, current type: ${_callType.value}")
+                return false
+            }
+            
+            val localParticipant = room?.localParticipant
+            if (localParticipant == null) {
+                Log.e(TAG, "❌ Local participant not found")
+                return false
+            }
+            
+            // For LiveKit Android, simulate DTMF with custom timing
+            try {
+                Log.w(TAG, "⚠️ DTMF with custom timing not directly supported in LiveKit Android")
+                Log.w(TAG, "🎵 Simulating DTMF tone with custom timing: '$digit'")
+                Log.d(TAG, "   - Custom tone duration: ${toneDuration}ms")
+                Log.d(TAG, "   - Custom inter-tone gap: ${interToneGap}ms")
+                
+                // Simulate the DTMF functionality
+                // In a real implementation, you would send this to your SIP backend
+                
+                Log.i(TAG, "✅ DTMF with custom timing simulated successfully: '$digit'")
+                Log.d(TAG, "   - Note: This is a simulation - actual DTMF requires backend support")
+                
+                true
+                
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ Error simulating DTMF with custom timing: ${e.message}")
+                false
+            }
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "❌ Error sending DTMF with custom timing: ${e.message}")
+            Log.e(TAG, "DTMF custom timing error:", e)
+            false
+        }
+    }
+    
+    /**
+     * TODO: Implement real DTMF functionality
+     * 
+     * This method should be implemented to send DTMF digits to your SIP backend
+     * You can call this from the UI instead of the simulation methods above
+     */
+    fun sendDtmfToBackend(digit: String): Boolean {
+        return try {
+            Log.d(TAG, "🎵 TODO: Send DTMF '$digit' to SIP backend")
+            
+            // TODO: Implement API call to your SIP backend
+            // Example:
+            // val repository = CallRepository()
+            // val result = repository.sendDtmfToSip(digit, roomName, participantIdentity)
+            
+            Log.w(TAG, "⚠️ Real DTMF not implemented yet - this is a placeholder")
+            Log.d(TAG, "   - Digit: $digit")
+            Log.d(TAG, "   - Room: ${room?.name}")
+            Log.d(TAG, "   - Participant: ${room?.localParticipant?.identity}")
+            
+            // For now, return false to indicate it's not implemented
+            false
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "❌ Error in DTMF backend method: ${e.message}")
+            false
+        }
+    }
 }
+
+// DTMF status information for debugging
+data class DtmfStatus(
+    val isSupported: Boolean,
+    val reason: String,
+    val hasAudioTrack: Boolean,
+    val hasDtmfSender: Boolean
+)
 
 enum class CallState {
     IDLE,

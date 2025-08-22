@@ -73,9 +73,15 @@ class CallActionReceiver : BroadcastReceiver() {
         // For now, just log the decline
         Log.d(TAG, "📤 Call declined - should send signal to backend")
         
-        // Navigate back to main activity
+        // Determine local role and navigate back to the correct main screen state
+        val localIsCustomer: Boolean = try {
+            val udm = com.yuave.kasookoo.data.UserDataManager(context)
+            udm.getUserType()?.equals("customer", ignoreCase = true) == true
+        } catch (_: Exception) { true }
+
         val mainIntent = Intent(context, com.yuave.kasookoo.ui.MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            putExtra("isCustomer", localIsCustomer)
         }
         context.startActivity(mainIntent)
         

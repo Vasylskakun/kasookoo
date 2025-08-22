@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.yuave.kasookoo.data.CallRepository
 import com.yuave.kasookoo.data.UserDataManager
+import com.yuave.kasookoo.data.FirebaseTokenManager
 import com.yuave.kasookoo.databinding.ActivityLoginBinding
 import kotlinx.coroutines.launch
 
@@ -87,8 +88,8 @@ class LoginActivity : AppCompatActivity() {
                     return@launch
                 }
                 
-                // Get FCM token for login
-                userDataManager.getFCMToken { newFcmToken ->
+                // Always refresh FCM token on login to ensure backend has the latest
+                FirebaseTokenManager(this@LoginActivity).forceRefreshToken { newFcmToken ->
                     lifecycleScope.launch {
                         try {
                             if (newFcmToken.isEmpty() || newFcmToken == "no_fcm_token") {
@@ -100,26 +101,22 @@ class LoginActivity : AppCompatActivity() {
                                 binding.btnLogin.isEnabled = true
                                 return@launch
                             }
-                            // Device token logic for login:
-                            // - deviceToken: The FCM token that was sent during registration (stored locally)
-                            // - newDeviceToken: Current FCM token (might be different if app was reinstalled)
-                            val deviceToken = userDataManager.getStoredDeviceToken() ?: "no_stored_token"
+                            // Prepare device info for backend
                             val deviceInfo = userDataManager.getDeviceInfoMap()
                             
                             Log.d(TAG, "📱 Login token details:")
-                            Log.d(TAG, "   - Stored token: ${deviceToken.take(20)}...")
                             Log.d(TAG, "   - New token: ${newFcmToken.take(20)}...")
                             
-                            // Update Firebase token
-                            val updateResult = callRepository.updateCallerOrCalledForFirebaseToken(
-                                userType, userId, deviceToken, newFcmToken, deviceInfo
+                            // Register (idempotent) device token on backend using same payload as registration
+                            val registerResult = callRepository.registerCallerOrCalledForFirebaseToken(
+                                userType, userId, newFcmToken, deviceInfo
                             )
-                            
-                            if (updateResult.isSuccess) {
+
+                            if (registerResult.isSuccess) {
                                 // Update stored token
                                 userDataManager.updateDeviceToken(newFcmToken)
                                 
-                                Log.d(TAG, "✅ Login successful for $userType: $userId")
+                                Log.d(TAG, "✅ Login token registered for $userType: $userId")
                                 
                                 // Navigate to main activity
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java).apply {
@@ -128,7 +125,7 @@ class LoginActivity : AppCompatActivity() {
                                 startActivity(intent)
                                 finish()
                             } else {
-                                Log.e(TAG, "❌ Login failed: ${updateResult.exceptionOrNull()?.message}")
+                                Log.e(TAG, "❌ Login token register failed: ${registerResult.exceptionOrNull()?.message}")
                                 Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
                             }
                         } catch (e: Exception) {

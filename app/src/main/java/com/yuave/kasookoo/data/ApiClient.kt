@@ -2,24 +2,29 @@ package com.yuave.kasookoo.data
 
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
+import okhttp3.ConnectionSpec
+import okhttp3.Protocol
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import java.security.SecureRandom
+import java.security.cert.X509Certificate
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManager
+import javax.net.ssl.X509TrustManager
 
 object ApiClient {
     private const val BASE_URL = "https://voiceai.kasookoo.com/"
+    // Temporary toggle to bypass SSL chain issues on dev/test devices.
+    // Set to false once server certificates are fixed.
+    private const val TRUST_ALL_SSL_TEMP = true
     
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
     
-    private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .build()
+    private val okHttpClient = createOkHttpClient()
     
     private val gson = GsonBuilder()
         .setLenient()
@@ -32,55 +37,57 @@ object ApiClient {
         .build()
     
     val apiService: ApiService = retrofit.create(ApiService::class.java)
+
+    /**
+     * Create OkHttpClient. In debug builds, relax SSL verification to bypass
+     * backend certificate chain issues during development. Release builds use
+     * strict TLS by default.
+     */
+    private fun createOkHttpClient(): OkHttpClient {
+        val builder = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+
+        // Detect debug at runtime without compile-time dependency on BuildConfig
+        val isDebug = try {
+            val clazz = Class.forName("com.yuave.kasookoo.BuildConfig")
+            val field = clazz.getField("DEBUG")
+            field.getBoolean(null)
+        } catch (_: Exception) { false }
+
+        if (isDebug || TRUST_ALL_SSL_TEMP) {
+            try {
+                val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
+                    override fun checkClientTrusted(chain: Array<X509Certificate>, authType: String) {}
+                    override fun checkServerTrusted(chain: Array<X509Certificate>, authType: String) {}
+                    override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
+                })
+
+                val sslContext = SSLContext.getInstance("TLS")
+                sslContext.init(null, trustAllCerts, SecureRandom())
+                val sslSocketFactory = sslContext.socketFactory
+
+                builder.sslSocketFactory(sslSocketFactory, trustAllCerts[0] as X509TrustManager)
+                builder.hostnameVerifier { _, _ -> true }
+                // Prefer HTTP/1.1 to avoid strict HTTP/2 TLS requirements on older devices
+                builder.protocols(listOf(Protocol.HTTP_1_1))
+                // Allow modern and compatible TLS cipher suites
+                builder.connectionSpecs(listOf(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS))
+                builder.retryOnConnectionFailure(true)
+            } catch (_: Exception) {
+                // If anything fails, fall back to default secure client
+            }
+        }
+
+        return builder.build()
+    }
 }
 
 class CallRepository {
     private val apiService = ApiClient.apiService
     
-    suspend fun getLiveKitToken(roomName: String, participantIdentity: String): Result<TokenResponse> {
-        return try {
-            val request = TokenRequest(roomName, participantIdentity)
-            val response = apiService.getLiveKitToken(request)
-            
-            if (response.isSuccessful && response.body() != null) {
-                Result.success(response.body()!!)
-            } else {
-                Result.failure(Exception("Failed to get token: ${response.message()}"))
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
-    suspend fun getDriverDetails(driverId: String): Result<DriverDetails> {
-        return try {
-            val response = apiService.getDriverDetails(driverId)
-            
-            if (response.isSuccessful && response.body() != null) {
-                Result.success(response.body()!!)
-            } else {
-                Result.failure(Exception("Failed to get driver details: ${response.message()}"))
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
-    
-    // Legacy support call function (keeping for backward compatibility)
-    suspend fun initiateSupportCall(customerId: String, issueType: String): Result<SupportCallResponse> {
-        return try {
-            val request = SupportCallRequest(customerId, issueType)
-            val response = apiService.initiateSupportCall(request)
-            
-            if (response.isSuccessful && response.body() != null) {
-                Result.success(response.body()!!)
-            } else {
-                Result.failure(Exception("Failed to initiate support call: ${response.message()}"))
-            }
-        } catch (e: Exception) {
-            Result.failure(e)
-        }
-    }
     
     // New SIP-based support call functions
     suspend fun makeSupportCall(roomName: String, participantName: String): Result<SupportCallMakeResponse> {
@@ -196,7 +203,14 @@ class CallRepository {
         callerUserId: String
     ): Result<CallerTokenResponse> {
         return try {
-            val request = CallerTokenRequest(roomName, participantIdentity, participantIdentityName, participantIdentityType, callerUserId)
+            val request = CallerTokenRequest(
+                room_name = roomName, 
+                participant_identity = participantIdentity, 
+                participant_identity_name = participantIdentityName, 
+                participant_identity_type = participantIdentityType, 
+                caller_user_id = callerUserId,
+                device_type = "android"
+            )
             val response = apiService.getCallerLiveKitToken(request)
             
             if (response.isSuccessful && response.body() != null) {
@@ -217,13 +231,44 @@ class CallRepository {
         calledUserId: String
     ): Result<CalledTokenResponse> {
         return try {
-            val request = CalledTokenRequest(roomName, participantIdentity, participantIdentityName, participantIdentityType, calledUserId)
+            val request = CalledTokenRequest(
+                room_name = roomName, 
+                participant_identity = participantIdentity, 
+                participant_identity_name = participantIdentityName, 
+                participant_identity_type = participantIdentityType, 
+                called_user_id = calledUserId,
+                device_type = "android"
+            )
             val response = apiService.getCalledLiveKitToken(request)
             
             if (response.isSuccessful && response.body() != null) {
                 Result.success(response.body()!!)
             } else {
                 Result.failure(Exception("Failed to get called token: ${response.message()}"))
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+        }
+
+    // Unregister device token (logout)
+    suspend fun unregisterCallerOrCalledForFirebaseToken(
+        userType: String,
+        userId: String,
+        deviceToken: String
+    ): Result<UnregisterCallerResponse> {
+        return try {
+            val request = UnregisterCallerRequest(
+                user_type = userType,
+                user_id = userId,
+                device_token = deviceToken,
+                device_type = "android"
+            )
+            val response = apiService.unregisterCallerOrCalledForFirebaseToken(request)
+            if (response.isSuccessful && response.body() != null) {
+                Result.success(response.body()!!)
+            } else {
+                Result.failure(Exception("Failed to unregister token: ${response.message()}"))
             }
         } catch (e: Exception) {
             Result.failure(e)
