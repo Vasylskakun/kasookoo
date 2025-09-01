@@ -445,25 +445,25 @@ class CallActivity : AppCompatActivity() {
             
             if (success) {
                 Log.d(TAG, "✅ DTMF digit '$digit' sent successfully")
-                updateDtmfStatus("Sent: $digit")
-                
+                updateDtmfStatus("✅ Sent: $digit")
+
                 // Provide haptic feedback
                 val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as android.os.Vibrator
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                    vibrator.vibrate(android.os.VibrationEffect.createOneShot(50, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
+                    vibrator.vibrate(android.os.VibrationEffect.createOneShot(100, android.os.VibrationEffect.DEFAULT_AMPLITUDE))
                 } else {
                     @Suppress("DEPRECATION")
-                    vibrator.vibrate(50)
+                    vibrator.vibrate(100)
                 }
-                
+
                 // Update status after a delay
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    updateDtmfStatus("DTMF Ready")
-                }, 1000)
-                
+                    updateDtmfStatus("🎵 DTMF Ready")
+                }, 1500)
+
             } else {
                 Log.e(TAG, "❌ Failed to send DTMF digit '$digit'")
-                updateDtmfStatus("Failed to send: $digit")
+                updateDtmfStatus("❌ Failed: $digit")
             }
             
         } catch (e: Exception) {
@@ -497,9 +497,10 @@ class CallActivity : AppCompatActivity() {
             Log.d(TAG, "   - Has DTMF Sender: ${dtmfStatus.hasDtmfSender}")
             
             if (dtmfStatus.isSupported) {
-                updateDtmfStatus("DTMF Ready")
+                val method = if (dtmfStatus.hasDtmfSender) "WebRTC DTMF" else "Audio Generation"
+                updateDtmfStatus("🎵 DTMF Ready ($method)")
             } else {
-                updateDtmfStatus("DTMF: ${dtmfStatus.reason}")
+                updateDtmfStatus("❌ DTMF: ${dtmfStatus.reason}")
             }
             
         } catch (e: Exception) {

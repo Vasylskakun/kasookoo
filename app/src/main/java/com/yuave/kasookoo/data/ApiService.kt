@@ -146,7 +146,8 @@ data class CallerTokenRequest(
     val participant_identity_name: String,
     val participant_identity_type: String,
     val caller_user_id: String,
-    val device_type: String = "android"
+    val device_type: String = "android",
+    val is_push_notification: Boolean = false
 )
 
 data class CallerTokenResponse(

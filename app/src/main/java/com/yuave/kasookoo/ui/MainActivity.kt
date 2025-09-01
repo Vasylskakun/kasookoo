@@ -144,10 +144,13 @@ class MainActivity : AppCompatActivity() {
         
         // Setup UI based on user type
         setupUI()
-        
+
         // Setup LiveKit state observers
         setupObservers()
-        
+
+        // Check FCM status for debugging
+        checkFCMStatus()
+
         // No need for separate driver mode setup since we handle it in setupUI
     }
     
@@ -388,17 +391,20 @@ class MainActivity : AppCompatActivity() {
                         
                         tokenResult.onSuccess { tokenResponse ->
                             Log.d(TAG, "✅ Got caller token, connecting to room...")
-                            
+
                             // Connect to LiveKit room
                             val participantCallType = if (isCustomer) CallType.CUSTOMER else CallType.DRIVER
                             Log.d(TAG, "Customer initiating call to $callType, but connecting as $participantCallType")
-                            
+
                             liveKitManager.connectToRoom(
                                 token = tokenResponse.accessToken,
                                 wsUrl = tokenResponse.wsUrl,
                                 roomName = roomName,
                                 callType = participantCallType
                             )
+
+                            // Navigate to ringing activity for outgoing call
+                            navigateToRingingActivity()
                         }.onFailure { error ->
                             Log.d(TAG, "Failed to get caller token", error)
                             showError("Failed to initiate call: ${error.message}")
@@ -443,6 +449,9 @@ class MainActivity : AppCompatActivity() {
                                 roomName = roomName,
                                 callType = participantCallType
                             )
+
+                            // Navigate to ringing activity for outgoing call
+                            navigateToRingingActivity()
                         }.onFailure { error ->
                             Log.d(TAG, "Failed to get caller token", error)
                             showError("Failed to initiate call: ${error.message}")
@@ -466,8 +475,45 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToRingingActivity() {
         val intent = Intent(this, RingingActivity::class.java).apply {
             putExtra("isCustomer", isCustomer)
+            putExtra("is_silent_notification", false)  // Explicitly set to false for outgoing calls
         }
         startActivity(intent)
+    }
+
+    // Diagnostic method to check FCM status
+    private fun checkFCMStatus() {
+        Log.d(TAG, "🔍 ===== FCM DIAGNOSTIC CHECK =====")
+
+        // Check FCM token
+        val firebaseTokenManager = com.yuave.kasookoo.data.FirebaseTokenManager(this)
+        firebaseTokenManager.getFCMToken { token ->
+            Log.d(TAG, "🔍 FCM Token Status:")
+            Log.d(TAG, "   - Token exists: ${token.isNotEmpty()}")
+            Log.d(TAG, "   - Token length: ${token.length}")
+            Log.d(TAG, "   - Token preview: ${token.take(20)}...")
+
+            if (token.isEmpty() || token == "no_fcm_token") {
+                Log.e(TAG, "🚨 NO VALID FCM TOKEN - Notifications will not work!")
+                Log.e(TAG, "   - Please check internet connection")
+                Log.e(TAG, "   - Try force refreshing FCM token")
+            }
+        }
+
+        // Check user data
+        val userDataManager = com.yuave.kasookoo.data.UserDataManager(this)
+        val userId = userDataManager.getUserId()
+        val userType = userDataManager.getUserType()
+
+        Log.d(TAG, "🔍 User Data Status:")
+        Log.d(TAG, "   - User ID: $userId")
+        Log.d(TAG, "   - User Type: $userType")
+        Log.d(TAG, "   - User data complete: ${userId != null && userType != null}")
+
+        if (userId == null || userType == null) {
+            Log.e(TAG, "🚨 USER DATA MISSING - Cannot register for notifications!")
+        }
+
+        Log.d(TAG, "🔍 ===== END FCM DIAGNOSTIC =====")
     }
     
     private fun navigateToCallActivity() {

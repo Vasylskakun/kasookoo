@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-48:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-47:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\blockify\\.gradle\\caches\\8.13\\transforms\\89460355e7e23b55b0f4258454e6ba3d\\transformed\\material-1.11.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\126368780e2a2d46a85775ca8c8f1978\\transformed\\material-1.9.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "63",
-                        "endOffsets": "114"
+                        "endColumns": "75",
+                        "endOffsets": "126"
                     }
                 }
             ]

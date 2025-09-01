@@ -108,6 +108,12 @@ class LoginActivity : AppCompatActivity() {
                             Log.d(TAG, "   - New token: ${newFcmToken.take(20)}...")
                             
                             // Register (idempotent) device token on backend using same payload as registration
+                            Log.d(TAG, "📡 Registering FCM token with backend...")
+                            Log.d(TAG, "   - User Type: $userType")
+                            Log.d(TAG, "   - User ID: $userId")
+                            Log.d(TAG, "   - Token: ${newFcmToken.take(20)}...")
+                            Log.d(TAG, "   - Device Info: $deviceInfo")
+
                             val registerResult = callRepository.registerCallerOrCalledForFirebaseToken(
                                 userType, userId, newFcmToken, deviceInfo
                             )
@@ -115,8 +121,9 @@ class LoginActivity : AppCompatActivity() {
                             if (registerResult.isSuccess) {
                                 // Update stored token
                                 userDataManager.updateDeviceToken(newFcmToken)
-                                
-                                Log.d(TAG, "✅ Login token registered for $userType: $userId")
+
+                                Log.d(TAG, "✅ Login token registered successfully for $userType: $userId")
+                                Log.d(TAG, "📱 FCM registration completed - notifications should work now")
                                 
                                 // Navigate to main activity
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java).apply {
@@ -126,7 +133,10 @@ class LoginActivity : AppCompatActivity() {
                                 finish()
                             } else {
                                 Log.e(TAG, "❌ Login token register failed: ${registerResult.exceptionOrNull()?.message}")
-                                Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
+                                Log.e(TAG, "🚨 FCM REGISTRATION FAILED - Notifications will not work!")
+                                Log.e(TAG, "   - Error: ${registerResult.exceptionOrNull()?.message}")
+                                Log.e(TAG, "   - Please check backend connectivity and FCM token validity")
+                                Toast.makeText(this@LoginActivity, "Login failed - FCM registration error", Toast.LENGTH_LONG).show()
                             }
                         } catch (e: Exception) {
                             Log.e(TAG, "❌ Login error: ${e.message}")

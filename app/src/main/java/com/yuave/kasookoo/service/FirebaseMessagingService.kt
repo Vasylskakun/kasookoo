@@ -48,16 +48,39 @@ class KasookooFirebaseMessagingService : FirebaseMessagingService() {
         
         // Note: Backend will get FCM token when user registers/logs in
         Log.d(TAG, "📤 Backend will receive FCM token during registration/login")
+
+        // Diagnostic: Check if token is properly saved
+        val savedToken = firebaseTokenManager.getStoredFCMToken()
+        Log.d(TAG, "🔍 FCM Token Status:")
+        Log.d(TAG, "   - Saved token exists: ${savedToken != null}")
+        Log.d(TAG, "   - Token length: ${savedToken?.length ?: 0}")
+        Log.d(TAG, "   - Token preview: ${savedToken?.take(20)}...")
     }
     
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
-        
-        Log.d(TAG, "📨 Received FCM message:")
+
+        Log.d(TAG, "📨 ===== FCM MESSAGE RECEIVED =====")
         Log.d(TAG, "   - From: ${remoteMessage.from}")
+        Log.d(TAG, "   - Message ID: ${remoteMessage.messageId}")
+        Log.d(TAG, "   - Sent Time: ${remoteMessage.sentTime}")
+        Log.d(TAG, "   - TTL: ${remoteMessage.ttl}")
         Log.d(TAG, "   - Data: ${remoteMessage.data}")
         Log.d(TAG, "   - Notification: ${remoteMessage.notification}")
-        
+        Log.d(TAG, "   - Data keys: ${remoteMessage.data.keys}")
+        Log.d(TAG, "   ==================================")
+
+        // Check if this is a silent notification (data-only message)
+        val hasVisibleNotification = remoteMessage.notification != null &&
+                                   (!remoteMessage.notification?.title.isNullOrEmpty() ||
+                                    !remoteMessage.notification?.body.isNullOrEmpty())
+
+        if (hasVisibleNotification) {
+            Log.d(TAG, "📢 Visible notification message received")
+        } else {
+            Log.d(TAG, "🔕 Silent notification message received (data-only)")
+        }
+
         // Decide visibility based on local role and message type
         val type = remoteMessage.data["type"] ?: ""
         val localUserType = userDataManager.getUserType()?.lowercase()
@@ -67,7 +90,13 @@ class KasookooFirebaseMessagingService : FirebaseMessagingService() {
             // Customer called driver → show on driver device only
             "customer_incoming_call" -> {
                 if (localUserType == "driver") {
-                    handleCustomerIncomingCall(remoteMessage)
+                    if (hasVisibleNotification) {
+                        // Traditional notification message
+                        handleCustomerIncomingCall(remoteMessage)
+                    } else {
+                        // Silent notification message - handle silently
+                        handleSilentIncomingCall(remoteMessage)
+                    }
                 } else {
                     Log.d(TAG, "🚫 Suppressing customer_incoming_call for non-driver device")
                 }
@@ -75,9 +104,25 @@ class KasookooFirebaseMessagingService : FirebaseMessagingService() {
             // Driver called customer → show on customer device only
             "driver_incoming_call" -> {
                 if (localUserType == "customer") {
-                    handleDriverIncomingCall(remoteMessage)
+                    if (hasVisibleNotification) {
+                        // Traditional notification message
+                        handleDriverIncomingCall(remoteMessage)
+                    } else {
+                        // Silent notification message - handle silently
+                        handleSilentIncomingCall(remoteMessage)
+                    }
                 } else {
                     Log.d(TAG, "🚫 Suppressing driver_incoming_call for non-customer device")
+                }
+            }
+            // Support call - handle silently for all users who can receive support calls
+            "support_incoming_call" -> {
+                if (hasVisibleNotification) {
+                    // Traditional notification message
+                    handleSupportIncomingCall(remoteMessage)
+                } else {
+                    // Silent notification message - handle silently
+                    handleSilentIncomingCall(remoteMessage)
                 }
             }
             "call_ended" -> handleCallEnded(remoteMessage)
@@ -293,7 +338,79 @@ class KasookooFirebaseMessagingService : FirebaseMessagingService() {
         
         Log.d(TAG, "✅ General notification shown")
     }
-    
+
+    /**
+     * Handle silent incoming call notifications (data-only messages)
+     * This launches the ringing screen directly without showing visible notifications
+     */
+    private fun handleSilentIncomingCall(remoteMessage: RemoteMessage) {
+        val data = remoteMessage.data
+
+        Log.d(TAG, "🔕 Handling silent incoming call notification")
+
+        // Extract call data from the data payload
+        val callerName = data["participant_identity_name"] ?: "Unknown Caller"
+        val roomName = data["room_name"] ?: ""
+        val participantIdentity = data["participant_identity"] ?: ""
+        val callType = when (data["type"]) {
+            "customer_incoming_call" -> "customer"  // Customer calling driver → call type is customer
+            "driver_incoming_call" -> "driver"      // Driver calling customer → call type is driver
+            "support_incoming_call" -> "support"
+            else -> "unknown"
+        }
+
+        Log.d(TAG, "📞 Silent call details:")
+        Log.d(TAG, "   - Caller: $callerName")
+        Log.d(TAG, "   - Room: $roomName")
+        Log.d(TAG, "   - Type: $callType")
+        Log.d(TAG, "   - Participant ID: $participantIdentity")
+
+        // Create intent to launch ringing activity directly
+        val intent = Intent(this, com.yuave.kasookoo.ui.RingingActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                   Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                   Intent.FLAG_ACTIVITY_SINGLE_TOP
+
+            // Pass call data
+            putExtra("call_type", callType)
+            putExtra("caller_name", callerName)
+            putExtra("room_name", roomName)
+            putExtra("participant_identity", participantIdentity)
+            putExtra("is_incoming_call", true)
+            putExtra("is_silent_notification", true) // Flag to indicate silent notification
+        }
+
+        Log.d(TAG, "🚀 Launching ringing activity for silent notification")
+        startActivity(intent)
+
+        Log.d(TAG, "✅ Silent incoming call notification handled - ringing screen launched")
+    }
+
+    /**
+     * Handle traditional support call notifications (with title and body)
+     * This shows visible notification for support calls
+     */
+    private fun handleSupportIncomingCall(remoteMessage: RemoteMessage) {
+        val data = remoteMessage.data
+
+        // Extract notification data according to specification
+        val callerName = remoteMessage.notification?.title?.replace("Incoming Call from ", "") ?: "Support"
+        val roomName = data["room_name"] ?: ""
+        val participantIdentity = data["participant_identity"] ?: ""
+        val type = data["type"] ?: ""
+        val action = data["action"] ?: ""
+
+        Log.d(TAG, "🆘 Handling support incoming call:")
+        Log.d(TAG, "   - Type: $type")
+        Log.d(TAG, "   - Action: $action")
+        Log.d(TAG, "   - Caller Name: $callerName")
+        Log.d(TAG, "   - Room Name: $roomName")
+        Log.d(TAG, "   - Participant Identity: $participantIdentity")
+
+        // Show incoming call notification for support
+        showIncomingCallNotification("support", callerName, roomName, participantIdentity)
+    }
+
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(

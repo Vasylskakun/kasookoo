@@ -23,7 +23,7 @@
       </SelectionState>
       <SelectionState runConfigName="_Kasookoo_SDK.app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-08-16T19:35:47.795492Z">
+        <DropdownSelection timestamp="2025-09-01T20:00:40.386146800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\BLOCKIFY\.android\avd\Medium_Phone.avd" />

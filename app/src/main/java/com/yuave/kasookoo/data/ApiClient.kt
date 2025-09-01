@@ -15,7 +15,11 @@ import javax.net.ssl.TrustManager
 import javax.net.ssl.X509TrustManager
 
 object ApiClient {
+    // Temporary URL for testing - replace with actual domain when DNS is fixed
     private const val BASE_URL = "https://voiceai.kasookoo.com/"
+    // Alternative: Use direct IP if DNS fails
+    // private const val BASE_URL = "https://51.89.134.139/"
+
     // Temporary toggle to bypass SSL chain issues on dev/test devices.
     // Set to false once server certificates are fixed.
     private const val TRUST_ALL_SSL_TEMP = true
@@ -204,12 +208,13 @@ class CallRepository {
     ): Result<CallerTokenResponse> {
         return try {
             val request = CallerTokenRequest(
-                room_name = roomName, 
-                participant_identity = participantIdentity, 
-                participant_identity_name = participantIdentityName, 
-                participant_identity_type = participantIdentityType, 
+                room_name = roomName,
+                participant_identity = participantIdentity,
+                participant_identity_name = participantIdentityName,
+                participant_identity_type = participantIdentityType,
                 caller_user_id = callerUserId,
-                device_type = "android"
+                device_type = "android",
+                is_push_notification = false
             )
             val response = apiService.getCallerLiveKitToken(request)
             
@@ -232,10 +237,10 @@ class CallRepository {
     ): Result<CalledTokenResponse> {
         return try {
             val request = CalledTokenRequest(
-                room_name = roomName, 
-                participant_identity = participantIdentity, 
-                participant_identity_name = participantIdentityName, 
-                participant_identity_type = participantIdentityType, 
+                room_name = roomName,
+                participant_identity = participantIdentity,
+                participant_identity_name = participantIdentityName,
+                participant_identity_type = participantIdentityType,
                 called_user_id = calledUserId,
                 device_type = "android"
             )

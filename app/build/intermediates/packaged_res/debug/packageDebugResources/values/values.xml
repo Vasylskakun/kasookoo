@@ -123,42 +123,13 @@
     <dimen name="subtitle_top_margin">4dp</dimen>
     <dimen name="welcome_bottom_margin">24dp</dimen>
     <dimen name="welcome_text_size">22sp</dimen>
-    <string name="answer">Answer</string>
     <string name="app_name"> Kasookoo SDK</string>
-    <string name="call_connection_lost">Call connection lost</string>
-    <string name="call_driver">Call Driver</string>
-    <string name="call_support">Call Support</string>
-    <string name="calling">Calling...</string>
-    <string name="connect_driver_desc">Connect to your assigned driver</string>
-    <string name="connected">Connected</string>
-    <string name="connecting">Connecting...</string>
-    <string name="connection_failed">Connection failed. Please try again.</string>
-    <string name="customer">Customer</string>
-    <string name="customer_role">I\'m a Customer</string>
-    <string name="decline">Decline</string>
-    <string name="driver">Driver</string>
-    <string name="driver_role">I\'m a Driver</string>
-    <string name="end_call">End Call</string>
-    <string name="gcm_defaultSenderId" translatable="false">459725159190</string>
-    <string name="google_api_key" translatable="false">AIzaSyDtk38MuXWTDZ309FCvBy6-fWG-1R1k9h0</string>
-    <string name="google_app_id" translatable="false">1:459725159190:android:3f3a2fdc747d30a7f7ee37</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDtk38MuXWTDZ309FCvBy6-fWG-1R1k9h0</string>
-    <string name="google_storage_bucket" translatable="false">kasookoo-sdk.firebasestorage.app</string>
-    <string name="incoming_call">Incoming Call</string>
-    <string name="mute">Mute</string>
-    <string name="permissions_required">Permissions are required for voice calling</string>
-    <string name="project_id" translatable="false">kasookoo-sdk</string>
-    <string name="ringing">Ringing...</string>
-    <string name="select_role">Select your role to continue</string>
-    <string name="speaker">Speaker</string>
-    <string name="speaker_coming_soon">Speaker toggle coming soon</string>
-    <string name="support">Support</string>
-    <string name="support_help_desc">Get help from customer support</string>
-    <string name="touch_answer">Touch to answer the call</string>
-    <string name="unmute">Unmute</string>
-    <string name="wait_connect">Please wait while we connect you</string>
-    <string name="welcome_customer">Welcome Customer!\nChoose who to call:</string>
-    <string name="welcome_driver">Driver Mode\nWaiting for incoming calls...</string>
+    <string name="gcm_defaultSenderId" translatable="false">385695188894</string>
+    <string name="google_api_key" translatable="false">AIzaSyDMt7c4azisspYgWbw9y9ep6F3QWHyIuv8</string>
+    <string name="google_app_id" translatable="false">1:385695188894:android:e3bf62a427e89fb9f4b88f</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDMt7c4azisspYgWbw9y9ep6F3QWHyIuv8</string>
+    <string name="google_storage_bucket" translatable="false">kasookoo-sdk-f7f3f.firebasestorage.app</string>
+    <string name="project_id" translatable="false">kasookoo-sdk-f7f3f</string>
     <style name="Theme.CallKotlin" parent="Theme.Material3.DayNight">
         
         <item name="colorPrimary">@color/primary</item>

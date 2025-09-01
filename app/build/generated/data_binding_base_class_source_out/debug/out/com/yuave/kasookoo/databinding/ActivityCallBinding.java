@@ -4,9 +4,12 @@ package com.yuave.kasookoo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,13 +25,61 @@ public final class ActivityCallBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final ImageView btnEndCall;
+  public final Button btnDtmf0;
 
   @NonNull
-  public final ImageView btnMute;
+  public final Button btnDtmf1;
 
   @NonNull
-  public final ImageView btnSpeaker;
+  public final Button btnDtmf2;
+
+  @NonNull
+  public final Button btnDtmf3;
+
+  @NonNull
+  public final Button btnDtmf4;
+
+  @NonNull
+  public final Button btnDtmf5;
+
+  @NonNull
+  public final Button btnDtmf6;
+
+  @NonNull
+  public final Button btnDtmf7;
+
+  @NonNull
+  public final Button btnDtmf8;
+
+  @NonNull
+  public final Button btnDtmf9;
+
+  @NonNull
+  public final Button btnDtmfHash;
+
+  @NonNull
+  public final Button btnDtmfStar;
+
+  @NonNull
+  public final ImageButton btnDtmfToggle;
+
+  @NonNull
+  public final ImageButton btnEndCall;
+
+  @NonNull
+  public final ImageButton btnMute;
+
+  @NonNull
+  public final ImageButton btnSpeaker;
+
+  @NonNull
+  public final LinearLayout callControlsSection;
+
+  @NonNull
+  public final LinearLayout contactInfoSection;
+
+  @NonNull
+  public final LinearLayout dtmfDialPadSection;
 
   @NonNull
   public final LinearLayout headerSection;
@@ -37,28 +88,67 @@ public final class ActivityCallBinding implements ViewBinding {
   public final ImageView ivContactAvatar;
 
   @NonNull
+  public final SeekBar sbVolume;
+
+  @NonNull
   public final TextView tvCallDuration;
 
   @NonNull
   public final TextView tvCallStatus;
 
   @NonNull
+  public final TextView tvCallType;
+
+  @NonNull
   public final TextView tvContactName;
 
-  private ActivityCallBinding(@NonNull RelativeLayout rootView, @NonNull ImageView btnEndCall,
-      @NonNull ImageView btnMute, @NonNull ImageView btnSpeaker,
+  @NonNull
+  public final TextView tvDtmfStatus;
+
+  @NonNull
+  public final LinearLayout volumeSliderContainer;
+
+  private ActivityCallBinding(@NonNull RelativeLayout rootView, @NonNull Button btnDtmf0,
+      @NonNull Button btnDtmf1, @NonNull Button btnDtmf2, @NonNull Button btnDtmf3,
+      @NonNull Button btnDtmf4, @NonNull Button btnDtmf5, @NonNull Button btnDtmf6,
+      @NonNull Button btnDtmf7, @NonNull Button btnDtmf8, @NonNull Button btnDtmf9,
+      @NonNull Button btnDtmfHash, @NonNull Button btnDtmfStar, @NonNull ImageButton btnDtmfToggle,
+      @NonNull ImageButton btnEndCall, @NonNull ImageButton btnMute,
+      @NonNull ImageButton btnSpeaker, @NonNull LinearLayout callControlsSection,
+      @NonNull LinearLayout contactInfoSection, @NonNull LinearLayout dtmfDialPadSection,
       @NonNull LinearLayout headerSection, @NonNull ImageView ivContactAvatar,
-      @NonNull TextView tvCallDuration, @NonNull TextView tvCallStatus,
-      @NonNull TextView tvContactName) {
+      @NonNull SeekBar sbVolume, @NonNull TextView tvCallDuration, @NonNull TextView tvCallStatus,
+      @NonNull TextView tvCallType, @NonNull TextView tvContactName, @NonNull TextView tvDtmfStatus,
+      @NonNull LinearLayout volumeSliderContainer) {
     this.rootView = rootView;
+    this.btnDtmf0 = btnDtmf0;
+    this.btnDtmf1 = btnDtmf1;
+    this.btnDtmf2 = btnDtmf2;
+    this.btnDtmf3 = btnDtmf3;
+    this.btnDtmf4 = btnDtmf4;
+    this.btnDtmf5 = btnDtmf5;
+    this.btnDtmf6 = btnDtmf6;
+    this.btnDtmf7 = btnDtmf7;
+    this.btnDtmf8 = btnDtmf8;
+    this.btnDtmf9 = btnDtmf9;
+    this.btnDtmfHash = btnDtmfHash;
+    this.btnDtmfStar = btnDtmfStar;
+    this.btnDtmfToggle = btnDtmfToggle;
     this.btnEndCall = btnEndCall;
     this.btnMute = btnMute;
     this.btnSpeaker = btnSpeaker;
+    this.callControlsSection = callControlsSection;
+    this.contactInfoSection = contactInfoSection;
+    this.dtmfDialPadSection = dtmfDialPadSection;
     this.headerSection = headerSection;
     this.ivContactAvatar = ivContactAvatar;
+    this.sbVolume = sbVolume;
     this.tvCallDuration = tvCallDuration;
     this.tvCallStatus = tvCallStatus;
+    this.tvCallType = tvCallType;
     this.tvContactName = tvContactName;
+    this.tvDtmfStatus = tvDtmfStatus;
+    this.volumeSliderContainer = volumeSliderContainer;
   }
 
   @Override
@@ -88,56 +178,180 @@ public final class ActivityCallBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.btn_end_call;
-      ImageView btnEndCall = ViewBindings.findChildViewById(rootView, id);
+      id = R.id.btnDtmf0;
+      Button btnDtmf0 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf0 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf1;
+      Button btnDtmf1 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf1 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf2;
+      Button btnDtmf2 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf2 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf3;
+      Button btnDtmf3 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf3 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf4;
+      Button btnDtmf4 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf4 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf5;
+      Button btnDtmf5 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf5 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf6;
+      Button btnDtmf6 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf6 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf7;
+      Button btnDtmf7 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf7 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf8;
+      Button btnDtmf8 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf8 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmf9;
+      Button btnDtmf9 = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmf9 == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmfHash;
+      Button btnDtmfHash = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmfHash == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmfStar;
+      Button btnDtmfStar = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmfStar == null) {
+        break missingId;
+      }
+
+      id = R.id.btnDtmfToggle;
+      ImageButton btnDtmfToggle = ViewBindings.findChildViewById(rootView, id);
+      if (btnDtmfToggle == null) {
+        break missingId;
+      }
+
+      id = R.id.btnEndCall;
+      ImageButton btnEndCall = ViewBindings.findChildViewById(rootView, id);
       if (btnEndCall == null) {
         break missingId;
       }
 
-      id = R.id.btn_mute;
-      ImageView btnMute = ViewBindings.findChildViewById(rootView, id);
+      id = R.id.btnMute;
+      ImageButton btnMute = ViewBindings.findChildViewById(rootView, id);
       if (btnMute == null) {
         break missingId;
       }
 
-      id = R.id.btn_speaker;
-      ImageView btnSpeaker = ViewBindings.findChildViewById(rootView, id);
+      id = R.id.btnSpeaker;
+      ImageButton btnSpeaker = ViewBindings.findChildViewById(rootView, id);
       if (btnSpeaker == null) {
         break missingId;
       }
 
-      id = R.id.header_section;
+      id = R.id.callControlsSection;
+      LinearLayout callControlsSection = ViewBindings.findChildViewById(rootView, id);
+      if (callControlsSection == null) {
+        break missingId;
+      }
+
+      id = R.id.contactInfoSection;
+      LinearLayout contactInfoSection = ViewBindings.findChildViewById(rootView, id);
+      if (contactInfoSection == null) {
+        break missingId;
+      }
+
+      id = R.id.dtmfDialPadSection;
+      LinearLayout dtmfDialPadSection = ViewBindings.findChildViewById(rootView, id);
+      if (dtmfDialPadSection == null) {
+        break missingId;
+      }
+
+      id = R.id.headerSection;
       LinearLayout headerSection = ViewBindings.findChildViewById(rootView, id);
       if (headerSection == null) {
         break missingId;
       }
 
-      id = R.id.iv_contact_avatar;
+      id = R.id.ivContactAvatar;
       ImageView ivContactAvatar = ViewBindings.findChildViewById(rootView, id);
       if (ivContactAvatar == null) {
         break missingId;
       }
 
-      id = R.id.tv_call_duration;
+      id = R.id.sbVolume;
+      SeekBar sbVolume = ViewBindings.findChildViewById(rootView, id);
+      if (sbVolume == null) {
+        break missingId;
+      }
+
+      id = R.id.tvCallDuration;
       TextView tvCallDuration = ViewBindings.findChildViewById(rootView, id);
       if (tvCallDuration == null) {
         break missingId;
       }
 
-      id = R.id.tv_call_status;
+      id = R.id.tvCallStatus;
       TextView tvCallStatus = ViewBindings.findChildViewById(rootView, id);
       if (tvCallStatus == null) {
         break missingId;
       }
 
-      id = R.id.tv_contact_name;
+      id = R.id.tvCallType;
+      TextView tvCallType = ViewBindings.findChildViewById(rootView, id);
+      if (tvCallType == null) {
+        break missingId;
+      }
+
+      id = R.id.tvContactName;
       TextView tvContactName = ViewBindings.findChildViewById(rootView, id);
       if (tvContactName == null) {
         break missingId;
       }
 
-      return new ActivityCallBinding((RelativeLayout) rootView, btnEndCall, btnMute, btnSpeaker,
-          headerSection, ivContactAvatar, tvCallDuration, tvCallStatus, tvContactName);
+      id = R.id.tvDtmfStatus;
+      TextView tvDtmfStatus = ViewBindings.findChildViewById(rootView, id);
+      if (tvDtmfStatus == null) {
+        break missingId;
+      }
+
+      id = R.id.volumeSliderContainer;
+      LinearLayout volumeSliderContainer = ViewBindings.findChildViewById(rootView, id);
+      if (volumeSliderContainer == null) {
+        break missingId;
+      }
+
+      return new ActivityCallBinding((RelativeLayout) rootView, btnDtmf0, btnDtmf1, btnDtmf2,
+          btnDtmf3, btnDtmf4, btnDtmf5, btnDtmf6, btnDtmf7, btnDtmf8, btnDtmf9, btnDtmfHash,
+          btnDtmfStar, btnDtmfToggle, btnEndCall, btnMute, btnSpeaker, callControlsSection,
+          contactInfoSection, dtmfDialPadSection, headerSection, ivContactAvatar, sbVolume,
+          tvCallDuration, tvCallStatus, tvCallType, tvContactName, tvDtmfStatus,
+          volumeSliderContainer);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
