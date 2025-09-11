@@ -8,7 +8,7 @@ import retrofit2.http.Path
 
 interface ApiService {
     companion object {
-        const val BASE_URL = "https://voiceai.kasookoo.com/"
+        const val BASE_URL = "https://sdk.kasookoo.ai/"
     }
     
     

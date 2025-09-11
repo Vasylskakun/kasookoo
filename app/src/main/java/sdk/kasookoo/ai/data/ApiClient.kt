@@ -16,7 +16,7 @@ import javax.net.ssl.X509TrustManager
 
 object ApiClient {
     // API base URL for Kasookoo SDK
-    private const val BASE_URL = "https://voiceai.kasookoo.com/"
+    private const val BASE_URL = "https://sdk.kasookoo.ai/"
     // Alternative: Use direct IP if DNS fails
     // private const val BASE_URL = "https://51.89.134.139/"
 
