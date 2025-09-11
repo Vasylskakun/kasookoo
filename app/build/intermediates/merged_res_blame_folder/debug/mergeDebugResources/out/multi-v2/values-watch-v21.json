@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-47:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "sdk.kasookoo.ai.app-mergeDebugResources-47:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\12eea91a790b620fdc20db660aabe113\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",

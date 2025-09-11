@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yuave.kasookoo"
+    package="sdk.kasookoo.ai"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -33,16 +33,16 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="sdk.kasookoo.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="sdk.kasookoo.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
     <uses-permission
         android:name="android.permission.BLUETOOTH"
         android:maxSdkVersion="30" />
 
     <application
-        android:name="com.yuave.kasookoo.CallApplication"
+        android:name="sdk.kasookoo.ai.CallApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -57,7 +57,7 @@
 
         <!-- User Selection Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.UserSelectionActivity"
+            android:name="sdk.kasookoo.ai.ui.UserSelectionActivity"
             android:exported="true"
             android:theme="@style/Theme.CallKotlin" >
             <intent-filter>
@@ -69,25 +69,25 @@
 
         <!-- Registration Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.RegistrationActivity"
+            android:name="sdk.kasookoo.ai.ui.RegistrationActivity"
             android:exported="false"
             android:theme="@style/Theme.CallKotlin" />
 
         <!-- Login Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.LoginActivity"
+            android:name="sdk.kasookoo.ai.ui.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.CallKotlin" />
 
         <!-- Main Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.MainActivity"
+            android:name="sdk.kasookoo.ai.ui.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.CallKotlin" />
 
         <!-- Ringing Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.RingingActivity"
+            android:name="sdk.kasookoo.ai.ui.RingingActivity"
             android:exported="false"
             android:launchMode="singleTop"
             android:showOnLockScreen="true"
@@ -96,24 +96,24 @@
 
         <!-- Call Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.CallActivity"
+            android:name="sdk.kasookoo.ai.ui.CallActivity"
             android:exported="false"
             android:theme="@style/Theme.CallKotlin" />
 
         <!-- Call History Activity -->
         <activity
-            android:name="com.yuave.kasookoo.ui.CallHistoryActivity"
+            android:name="sdk.kasookoo.ai.ui.CallHistoryActivity"
             android:exported="false"
             android:theme="@style/Theme.CallKotlin" />
 
         <!-- Call Action Receiver -->
         <receiver
-            android:name="com.yuave.kasookoo.service.CallActionReceiver"
+            android:name="sdk.kasookoo.ai.service.CallActionReceiver"
             android:exported="false" />
 
         <!-- Firebase Messaging Service -->
         <service
-            android:name="com.yuave.kasookoo.service.KasookooFirebaseMessagingService"
+            android:name="sdk.kasookoo.ai.service.KasookooFirebaseMessagingService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -163,7 +163,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.yuave.kasookoo.firebaseinitprovider"
+            android:authorities="sdk.kasookoo.ai.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
@@ -185,7 +185,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.yuave.kasookoo.androidx-startup"
+            android:authorities="sdk.kasookoo.ai.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

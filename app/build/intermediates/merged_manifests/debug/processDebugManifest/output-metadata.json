@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.yuave.kasookoo",
+  "applicationId": "sdk.kasookoo.ai",
   "variantName": "debug",
   "elements": [
     {

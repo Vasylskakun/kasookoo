@@ -1,6 +1,6 @@
-com.yuave.kasookoo.test.app-annotation-experimental-1.3.0-0 C:\Users\BLOCKIFY\.android\caches\8.13\transforms\fc43866fa7cf9b54907fef49fd58a26b\transformed\annotation-experimental-1.3.0\res
-com.yuave.kasookoo.test.app-core-1.5.0-1 C:\Users\BLOCKIFY\.android\caches\8.13\transforms\fd9d29f690c6302f38da09d8a68d3024\transformed\core-1.5.0\res
-com.yuave.kasookoo.test.app-androidTest-2 F:\Call_kotlin\app\build\generated\res\resValues\androidTest\debug
-com.yuave.kasookoo.test.app-mergeDebugAndroidTestResources-3 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.yuave.kasookoo.test.app-mergeDebugAndroidTestResources-4 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.yuave.kasookoo.test.app-debugAndroidTest-5 F:\Call_kotlin\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+sdk.kasookoo.ai.test.app-annotation-experimental-1.3.0-0 C:\Users\BLOCKIFY\.android\caches\8.13\transforms\fc43866fa7cf9b54907fef49fd58a26b\transformed\annotation-experimental-1.3.0\res
+sdk.kasookoo.ai.test.app-core-1.5.0-1 C:\Users\BLOCKIFY\.android\caches\8.13\transforms\fd9d29f690c6302f38da09d8a68d3024\transformed\core-1.5.0\res
+sdk.kasookoo.ai.test.app-androidTest-2 F:\Call_kotlin\app\build\generated\res\resValues\androidTest\debug
+sdk.kasookoo.ai.test.app-mergeDebugAndroidTestResources-3 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+sdk.kasookoo.ai.test.app-mergeDebugAndroidTestResources-4 F:\Call_kotlin\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+sdk.kasookoo.ai.test.app-debugAndroidTest-5 F:\Call_kotlin\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

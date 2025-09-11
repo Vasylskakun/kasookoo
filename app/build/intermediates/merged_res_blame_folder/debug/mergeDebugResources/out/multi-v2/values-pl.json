@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-47:/values-pl/values-pl.xml",
+            "outputFile": "sdk.kasookoo.ai.app-mergeDebugResources-47:/values-pl/values-pl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\126368780e2a2d46a85775ca8c8f1978\\transformed\\material-1.9.0\\res\\values-pl\\values-pl.xml",

@@ -4,7 +4,7 @@
     "type": "LINKED_RESOURCES_BINARY_FORMAT",
     "kind": "Directory"
   },
-  "applicationId": "com.yuave.kasookoo.test",
+  "applicationId": "sdk.kasookoo.ai.test",
   "variantName": "debugAndroidTest",
   "elements": [
     {

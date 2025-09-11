@@ -1,34 +1,34 @@
 [
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/item_call_history.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/item_call_history.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_user_selection.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_user_selection.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_call_history.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_call_history.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_call_history.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_call_history.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_login.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_login.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/item_call_history.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/item_call_history.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_user_selection.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_user_selection.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_call.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_call.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_ringing.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_ringing.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_ringing.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_ringing.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_main.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_main.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_registration.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_registration.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_call.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_call.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_login.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_login.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-mergeDebugResources-48:/layout/activity_registration.xml",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_registration.xml"
+        "merged": "sdk.kasookoo.ai.app-mergeDebugResources-48:/layout/activity_main.xml",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_main.xml"
     }
 ]

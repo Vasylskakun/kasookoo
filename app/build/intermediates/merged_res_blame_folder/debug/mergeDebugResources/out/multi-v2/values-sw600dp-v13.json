@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-47:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "sdk.kasookoo.ai.app-mergeDebugResources-47:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "F:\\Call_kotlin\\app\\src\\main\\res\\values-sw600dp\\dimens.xml",

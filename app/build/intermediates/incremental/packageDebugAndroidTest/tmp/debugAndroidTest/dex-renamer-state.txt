@@ -1,4 +1,4 @@
-#Mon Sep 01 18:25:41 KST 2025
+#Thu Sep 11 16:48:52 KST 2025
 base.0=F\:\\Call_kotlin\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
 base.1=F\:\\Call_kotlin\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
 path.0=classes.dex

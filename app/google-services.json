@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:385695188894:android:e3bf62a427e89fb9f4b88f",
         "android_client_info": {
-          "package_name": "com.yuave.kasookoo"
+          "package_name": "sdk.kasookoo.ai"
         }
       },
       "oauth_client": [],

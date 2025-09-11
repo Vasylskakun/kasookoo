@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.yuave.kasookoo'
+    namespace 'sdk.kasookoo.ai'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.yuave.kasookoo"
+        applicationId "sdk.kasookoo.ai"
         minSdk 24
         targetSdk 34
         versionCode 1

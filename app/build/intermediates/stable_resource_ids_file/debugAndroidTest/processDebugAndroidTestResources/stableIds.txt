@@ -1,2 +1,2 @@
-com.yuave.kasookoo.test:style/WhiteBackgroundTheme = 0x7f010001
-com.yuave.kasookoo.test:style/WhiteBackgroundDialogTheme = 0x7f010000
+sdk.kasookoo.ai.test:style/WhiteBackgroundTheme = 0x7f010001
+sdk.kasookoo.ai.test:style/WhiteBackgroundDialogTheme = 0x7f010000

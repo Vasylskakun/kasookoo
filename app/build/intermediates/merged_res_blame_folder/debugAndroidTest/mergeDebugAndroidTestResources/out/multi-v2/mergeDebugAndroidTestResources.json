@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.test.app-debugAndroidTest-5:/values_values.arsc.flat",
+            "outputFile": "sdk.kasookoo.ai.test.app-debugAndroidTest-5:/values_values.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\fd9d29f690c6302f38da09d8a68d3024\\transformed\\core-1.5.0\\res\\values\\values.xml",
@@ -25,31 +25,7 @@
             ]
         },
         {
-            "outputFile": "com.yuave.kasookoo.test.app-debugAndroidTest-5:/values-v28_values-v28.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\fd9d29f690c6302f38da09d8a68d3024\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
-                    "from": {
-                        "startLines": "4,13",
-                        "startColumns": "0,0",
-                        "startOffsets": "180,659",
-                        "endLines": "12,21",
-                        "endColumns": "8,8",
-                        "endOffsets": "658,1135"
-                    },
-                    "to": {
-                        "startLines": "2,11",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,538",
-                        "endLines": "10,19",
-                        "endColumns": "8,8",
-                        "endOffsets": "533,1014"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "com.yuave.kasookoo.test.app-debugAndroidTest-5:/values-v21_values-v21.arsc.flat",
+            "outputFile": "sdk.kasookoo.ai.test.app-debugAndroidTest-5:/values-v21_values-v21.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\fd9d29f690c6302f38da09d8a68d3024\\transformed\\core-1.5.0\\res\\values-v21\\values.xml",
@@ -73,7 +49,7 @@
             ]
         },
         {
-            "outputFile": "com.yuave.kasookoo.test.app-debugAndroidTest-5:/values-v18_values-v18.arsc.flat",
+            "outputFile": "sdk.kasookoo.ai.test.app-debugAndroidTest-5:/values-v18_values-v18.arsc.flat",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\fd9d29f690c6302f38da09d8a68d3024\\transformed\\core-1.5.0\\res\\values-v18\\values.xml",
@@ -92,6 +68,30 @@
                         "endLines": "9,17",
                         "endColumns": "8,8",
                         "endOffsets": "470,888"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "sdk.kasookoo.ai.test.app-debugAndroidTest-5:/values-v28_values-v28.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\fd9d29f690c6302f38da09d8a68d3024\\transformed\\core-1.5.0\\res\\values-v28\\values.xml",
+                    "from": {
+                        "startLines": "4,13",
+                        "startColumns": "0,0",
+                        "startOffsets": "180,659",
+                        "endLines": "12,21",
+                        "endColumns": "8,8",
+                        "endOffsets": "658,1135"
+                    },
+                    "to": {
+                        "startLines": "2,11",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,538",
+                        "endLines": "10,19",
+                        "endColumns": "8,8",
+                        "endOffsets": "533,1014"
                     }
                 }
             ]

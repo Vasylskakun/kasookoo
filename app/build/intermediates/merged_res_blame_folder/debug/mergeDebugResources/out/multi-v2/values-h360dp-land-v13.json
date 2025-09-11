@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.yuave.kasookoo.app-mergeDebugResources-47:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "sdk.kasookoo.ai.app-mergeDebugResources-47:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\BLOCKIFY\\.android\\caches\\8.13\\transforms\\126368780e2a2d46a85775ca8c8f1978\\transformed\\material-1.9.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",

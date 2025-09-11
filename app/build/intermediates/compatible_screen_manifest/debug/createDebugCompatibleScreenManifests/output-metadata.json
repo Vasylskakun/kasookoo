@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.yuave.kasookoo",
+  "applicationId": "sdk.kasookoo.ai",
   "variantName": "debug",
   "elements": []
 }

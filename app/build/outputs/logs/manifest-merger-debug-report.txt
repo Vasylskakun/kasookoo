@@ -259,7 +259,7 @@ MERGED from [com.jakewharton.timber:timber:4.7.0] C:\Users\BLOCKIFY\.android\cac
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:25:9-65
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:23:9-40
-activity#com.yuave.kasookoo.ui.UserSelectionActivity
+activity#sdk.kasookoo.ai.ui.UserSelectionActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:35:9-43:20
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:37:13-36
@@ -277,7 +277,7 @@ category#android.intent.category.LAUNCHER
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:41:17-77
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:41:27-74
-activity#com.yuave.kasookoo.ui.RegistrationActivity
+activity#sdk.kasookoo.ai.ui.RegistrationActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:46:9-49:55
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:48:13-37
@@ -285,7 +285,7 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:46:9-49:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:49:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:47:13-52
-activity#com.yuave.kasookoo.ui.LoginActivity
+activity#sdk.kasookoo.ai.ui.LoginActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:52:9-55:55
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:54:13-37
@@ -293,7 +293,7 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:52:9-55:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:55:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:53:13-45
-activity#com.yuave.kasookoo.ui.MainActivity
+activity#sdk.kasookoo.ai.ui.MainActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:58:9-61:55
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:60:13-37
@@ -301,7 +301,7 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:58:9-61:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:61:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:59:13-44
-activity#com.yuave.kasookoo.ui.RingingActivity
+activity#sdk.kasookoo.ai.ui.RingingActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:64:9-70:55
 	android:turnScreenOn
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:68:13-40
@@ -315,7 +315,7 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:64:9-70:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:70:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:65:13-47
-activity#com.yuave.kasookoo.ui.CallActivity
+activity#sdk.kasookoo.ai.ui.CallActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:73:9-76:55
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:75:13-37
@@ -323,7 +323,7 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:73:9-76:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:76:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:74:13-44
-activity#com.yuave.kasookoo.ui.CallHistoryActivity
+activity#sdk.kasookoo.ai.ui.CallHistoryActivity
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:79:9-82:55
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:81:13-37
@@ -331,13 +331,13 @@ ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:79:9-82:55
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:82:13-52
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:80:13-51
-receiver#com.yuave.kasookoo.service.CallActionReceiver
+receiver#sdk.kasookoo.ai.service.CallActionReceiver
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:85:9-87:40
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:87:13-37
 	android:name
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:86:13-55
-service#com.yuave.kasookoo.service.KasookooFirebaseMessagingService
+service#sdk.kasookoo.ai.service.KasookooFirebaseMessagingService
 ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:90:9-96:19
 	android:exported
 		ADDED from F:\Call_kotlin\app\src\main\AndroidManifest.xml:92:13-37
@@ -665,7 +665,7 @@ ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\tr
 		ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
-permission#com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#sdk.kasookoo.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
@@ -675,7 +675,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
-uses-permission#com.yuave.kasookoo.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#sdk.kasookoo.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.10.1] C:\Users\BLOCKIFY\.android\caches\8.13\transforms\4b415f4d3a7527bc6e4ce86dacfe4413\transformed\core-1.10.1\AndroidManifest.xml:26:22-94

@@ -1,0 +1,164 @@
+package sdk.kasookoo.ai.ui
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import sdk.kasookoo.ai.data.CallRepository
+import sdk.kasookoo.ai.data.UserDataManager
+import sdk.kasookoo.ai.data.FirebaseTokenManager
+import sdk.kasookoo.ai.databinding.ActivityLoginBinding
+import kotlinx.coroutines.launch
+
+class LoginActivity : AppCompatActivity() {
+    
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var userDataManager: UserDataManager
+    private lateinit var callRepository: CallRepository
+    
+    companion object {
+        private const val TAG = "LoginActivity"
+    }
+    
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        
+        userDataManager = UserDataManager(this)
+        callRepository = CallRepository()
+        
+        setupUI()
+        setupClickListeners()
+    }
+    
+    private fun setupUI() {
+        // Pre-fill email if available
+        userDataManager.getEmail()?.let { email ->
+            binding.etEmail.setText(email)
+        }
+        
+        // Show registration button if no user data exists
+        if (!userDataManager.hasUserData()) {
+            binding.btnRegister.visibility = View.VISIBLE
+        }
+    }
+    
+    private fun setupClickListeners() {
+        binding.btnLogin.setOnClickListener {
+            handleLogin()
+        }
+        
+        binding.btnRegister.setOnClickListener {
+            navigateToRegistration()
+        }
+    }
+    
+    private fun handleLogin() {
+        val email = binding.etEmail.text.toString().trim()
+        val password = binding.etPassword.text.toString().trim()
+        
+        // Validate inputs
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        // Check if user data exists locally
+        if (!userDataManager.hasUserData()) {
+            Toast.makeText(this, "No user data found. Please register first.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        
+        // Show loading
+        binding.progressBar.visibility = View.VISIBLE
+        binding.btnLogin.isEnabled = false
+        
+        lifecycleScope.launch {
+            try {
+                // Get stored user data
+                val userId = userDataManager.getUserId()
+                val userType = userDataManager.getUserType()
+                
+                if (userId == null || userType == null) {
+                    Toast.makeText(this@LoginActivity, "User data not found", Toast.LENGTH_SHORT).show()
+                    return@launch
+                }
+                
+                // Always refresh FCM token on login to ensure backend has the latest
+                FirebaseTokenManager(this@LoginActivity).forceRefreshToken { newFcmToken ->
+                    lifecycleScope.launch {
+                        try {
+                            if (newFcmToken.isEmpty() || newFcmToken == "no_fcm_token") {
+                                Log.e(TAG, "❌ Failed to get valid FCM token for login")
+                                Toast.makeText(this@LoginActivity, 
+                                    "Failed to initialize Firebase. Please check your internet connection and try again.", 
+                                    Toast.LENGTH_LONG).show()
+                                binding.progressBar.visibility = View.GONE
+                                binding.btnLogin.isEnabled = true
+                                return@launch
+                            }
+                            // Prepare device info for backend
+                            val deviceInfo = userDataManager.getDeviceInfoMap()
+                            
+                            Log.d(TAG, "📱 Login token details:")
+                            Log.d(TAG, "   - New token: ${newFcmToken.take(20)}...")
+                            
+                            // Register (idempotent) device token on backend using same payload as registration
+                            Log.d(TAG, "📡 Registering FCM token with backend...")
+                            Log.d(TAG, "   - User Type: $userType")
+                            Log.d(TAG, "   - User ID: $userId")
+                            Log.d(TAG, "   - Token: ${newFcmToken.take(20)}...")
+                            Log.d(TAG, "   - Device Info: $deviceInfo")
+
+                            val registerResult = callRepository.registerCallerOrCalledForFirebaseToken(
+                                userType, userId, newFcmToken, deviceInfo
+                            )
+
+                            if (registerResult.isSuccess) {
+                                // Update stored token
+                                userDataManager.updateDeviceToken(newFcmToken)
+
+                                Log.d(TAG, "✅ Login token registered successfully for $userType: $userId")
+                                Log.d(TAG, "📱 FCM registration completed - notifications should work now")
+                                
+                                // Navigate to main activity
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java).apply {
+                                    putExtra("isCustomer", userType == "customer")
+                                }
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                Log.e(TAG, "❌ Login token register failed: ${registerResult.exceptionOrNull()?.message}")
+                                Log.e(TAG, "🚨 FCM REGISTRATION FAILED - Notifications will not work!")
+                                Log.e(TAG, "   - Error: ${registerResult.exceptionOrNull()?.message}")
+                                Log.e(TAG, "   - Please check backend connectivity and FCM token validity")
+                                Toast.makeText(this@LoginActivity, "Login failed - FCM registration error", Toast.LENGTH_LONG).show()
+                            }
+                        } catch (e: Exception) {
+                            Log.e(TAG, "❌ Login error: ${e.message}")
+                            Toast.makeText(this@LoginActivity, "Login error: ${e.message}", Toast.LENGTH_SHORT).show()
+                        } finally {
+                            binding.progressBar.visibility = View.GONE
+                            binding.btnLogin.isEnabled = true
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e(TAG, "❌ Login error: ${e.message}")
+                Toast.makeText(this@LoginActivity, "Login error: ${e.message}", Toast.LENGTH_SHORT).show()
+            } finally {
+                binding.progressBar.visibility = View.GONE
+                binding.btnLogin.isEnabled = true
+            }
+        }
+    }
+    
+    private fun navigateToRegistration() {
+        val intent = Intent(this, RegistrationActivity::class.java)
+        startActivity(intent)
+    }
+}

@@ -1,206 +1,206 @@
 [
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_login.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_login.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_main.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_main.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_call.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_call.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_driver_modern.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_driver_modern.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_call_background_gradient.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/call_background_gradient.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xxxhdpi_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xxxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/xml_backup_rules.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/xml/backup_rules.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_button_ripple_driver.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/button_ripple_driver.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_registration.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_registration.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_speaker.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_speaker.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_circle_background.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/circle_background.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_call_background_gradient.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/call_background_gradient.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_button_ripple_control.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/button_ripple_control.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_call_button_accept.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/call_button_accept.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_notification.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_notification.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_call_button_decline.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/call_button_decline.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-mdpi_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-mdpi/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_call_history.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_call_history.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_gradient_main_background.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/gradient_main_background.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_call_end.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_call_end.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/xml_data_extraction_rules.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/xml/data_extraction_rules.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_call.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_call.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_gradient_driver_button.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/gradient_driver_button.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_gradient_support_button.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/gradient_support_button.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_speaker_on.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_speaker_on.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_notification.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_notification.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_mic_off.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_mic_off.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_mic_off.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_mic_off.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_driver_modern.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_driver_modern.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_gradient_driver_button.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/gradient_driver_button.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-mdpi_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-mdpi/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_call_modern.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_call_modern.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_button_ripple_decline.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/button_ripple_decline.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_ringing.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_ringing.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_gradient_main_background.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/gradient_main_background.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_call.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_call.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-mdpi_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-mdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_item_call_history.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/item_call_history.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xxxhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xxhdpi_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xxhdpi/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_registration.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_registration.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_call_control_button.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/call_control_button.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_microphone.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_microphone.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xxxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xxxhdpi/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_person.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_person.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_button_ripple_support.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/button_ripple_support.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_speaker_off.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_speaker_off.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_user_selection.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_user_selection.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_circle_background.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/circle_background.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_person.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_person.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_call.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_call.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_call_history.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_call_history.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_speaker_on.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_speaker_on.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_call_button_decline.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/call_button_decline.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_modern_header_background.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/modern_header_background.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_speaker.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_speaker.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xxhdpi_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xxhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xhdpi_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xhdpi/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-mdpi_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-mdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/layout_activity_main.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/layout/activity_main.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xhdpi_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xhdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_button_ripple_accept.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/button_ripple_accept.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-xhdpi_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-xhdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_avatar_background.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/avatar_background.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-hdpi_ic_launcher_round.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-hdpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_modern_header_background.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/modern_header_background.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-hdpi_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-hdpi/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_button_ripple_driver.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/button_ripple_driver.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_call_control_button.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/call_control_button.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_support_modern.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_support_modern.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_spinner_background.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/spinner_background.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_avatar_background.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/avatar_background.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_call_modern.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_call_modern.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_button_ripple_support.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/button_ripple_support.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_call_end.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_call_end.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_button_ripple_control.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/button_ripple_control.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_logout.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_logout.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_microphone.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_microphone.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_spinner_background.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/spinner_background.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xhdpi_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xhdpi/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_login.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_login.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-hdpi_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-hdpi/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_ic_logout.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/ic_logout.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_gradient_support_button.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/gradient_support_button.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_item_call_history.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/item_call_history.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_speaker_off.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_speaker_off.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_button_ripple_decline.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/button_ripple_decline.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-hdpi_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-hdpi/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/xml_data_extraction_rules.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_call_button_accept.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/call_button_accept.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/xml_backup_rules.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/drawable_ic_support_modern.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/drawable/ic_support_modern.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_ringing.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_ringing.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xxhdpi_ic_launcher_round.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xxhdpi/ic_launcher_round.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/layout_activity_user_selection.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/layout/activity_user_selection.xml"
     },
     {
-        "merged": "com.yuave.kasookoo.app-debug-49:/mipmap-xxxhdpi_ic_launcher.xml.flat",
-        "source": "com.yuave.kasookoo.app-main-51:/mipmap-xxxhdpi/ic_launcher.xml"
+        "merged": "sdk.kasookoo.ai.app-debug-49:/drawable_button_ripple_accept.xml.flat",
+        "source": "sdk.kasookoo.ai.app-main-51:/drawable/button_ripple_accept.xml"
     }
 ]
